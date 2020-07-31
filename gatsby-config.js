@@ -40,6 +40,9 @@ module.exports = {
         accessToken: `${process.env.API_KEY}`,
         linkResolver: ({ node, key, value }) => post =>
           `/proyectos/${post.uid}`,
+        shouldDownloadImage: ({ node, key, value }) => {
+          return true
+        },
         schemas: {
           menu: require(`./src/schemas/menu.json`),
           home: require(`./src/schemas/home.json`),
