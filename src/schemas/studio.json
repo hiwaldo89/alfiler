@@ -1,0 +1,97 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title"
+      }
+    },
+    "manifesto": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Title"
+            }
+          },
+          "column_1": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Column 1"
+            }
+          },
+          "column_2": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Column 2"
+            }
+          }
+        },
+        "label": "Manifesto",
+        "repeat": false
+      }
+    },
+    "team_members": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "photo": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": 800,
+                "height": 800
+              },
+              "thumbnails": [],
+              "label": "Photo"
+            }
+          },
+          "name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Name"
+            }
+          },
+          "bio": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "Bio"
+            }
+          },
+          "job_position": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "Job position"
+            }
+          }
+        },
+        "label": "Team members"
+      }
+    },
+    "our_day_to_day": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Image"
+            }
+          }
+        },
+        "label": "Our day to day"
+      }
+    }
+  }
+}

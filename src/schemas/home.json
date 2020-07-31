@@ -1,0 +1,80 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title"
+      }
+    },
+    "quote": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "quote_text": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, strong",
+              "label": "Quote Text",
+              "placeholder": "Make the word to be defined bold"
+            }
+          },
+          "definition": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, em",
+              "label": "Definition"
+            }
+          }
+        },
+        "label": "Quote",
+        "repeat": false
+      }
+    },
+    "about": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Image"
+            }
+          },
+          "block_content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Block Content"
+            }
+          }
+        },
+        "label": "About"
+      }
+    },
+    "services": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading1",
+              "label": "Title"
+            }
+          },
+          "content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Content"
+            }
+          }
+        },
+        "label": "Services"
+      }
+    }
+  }
+}

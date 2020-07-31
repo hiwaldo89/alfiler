@@ -1,0 +1,159 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title"
+      }
+    },
+    "branding_studio": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "branding_studio_title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Title"
+            }
+          },
+          "content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Content"
+            }
+          }
+        },
+        "label": "Branding Studio",
+        "repeat": false
+      }
+    },
+    "medidas": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title1": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Title"
+            }
+          },
+          "content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Content"
+            }
+          }
+        },
+        "label": "Medidas"
+      }
+    },
+    "confeccion": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title1": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Title"
+            }
+          },
+          "content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Content"
+            }
+          }
+        },
+        "label": "Confección"
+      }
+    },
+    "accesorios": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title1": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Title"
+            }
+          },
+          "content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Content"
+            }
+          }
+        },
+        "label": "Accesorios"
+      }
+    },
+    "wedding_boutique": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title1": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Title"
+            }
+          },
+          "content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Content"
+            }
+          }
+        },
+        "label": "Wedding boutique"
+      }
+    },
+    "wedding_boutique_services": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title1": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Title"
+            }
+          }
+        },
+        "label": "Wedding boutique services"
+      }
+    },
+    "faqs": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "question": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "Question"
+            }
+          },
+          "answer": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "Answer"
+            }
+          }
+        },
+        "label": "FAQS"
+      }
+    }
+  }
+}
