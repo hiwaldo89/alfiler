@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Img from "gatsby-image"
-import { Swiper, SwiperSlide } from "swiper/react"
+//import { Swiper, SwiperSlide } from "swiper/react"
+import Swiper from "react-id-swiper"
 import { css } from "@emotion/core"
 import { colors } from "../../utils/colors"
 import "swiper/swiper.scss"
@@ -74,17 +75,28 @@ const OurTeam = ({ members }) => {
           watchSlidesVisibility
           loop
           loopAdditionalSlides={1}
-          onSlideChange={swiper => {
-            setActiveMember(swiper.realIndex)
-            if (!movedSlider && swiper.realIndex !== 0) {
-              setMovedSlider(true)
-            }
+          on={{
+            slideChange: swiper => {
+              setActiveMember(swiper.realIndex)
+              if (!movedSlider && swiper.realIndex !== 0) {
+                setMovedSlider(true)
+              }
+            },
           }}
         >
           {members.map((member, index) => (
-            <SwiperSlide key={`member-${index}`}>
-              <Img fluid={member.image} alt={member.name} />
-            </SwiperSlide>
+            <div key={`member-${index}`}>
+              <Img
+                fluid={member.image}
+                alt={member.name}
+                imgStyle={{
+                  opacity: 1,
+                }}
+                placeholderStyle={{
+                  opacity: 0,
+                }}
+              />
+            </div>
           ))}
         </Swiper>
       </div>
