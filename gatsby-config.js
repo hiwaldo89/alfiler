@@ -49,6 +49,8 @@ module.exports = {
           projects: require(`./src/schemas/projects.json`),
           studio: require(`./src/schemas/studio.json`),
           servicios: require(`./src/schemas/servicios.json`),
+          resenas: require(`./src/schemas/resenas.json`),
+          category: require(`./src/schemas/category.json`),
         },
       },
     },

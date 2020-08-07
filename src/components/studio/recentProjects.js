@@ -70,6 +70,7 @@ const RecentProjects = () => {
                   filter: grayscale(0);
                   .project-info {
                     opacity: 1;
+                    transform: translateY(0);
                   }
                 }
                 img {
@@ -85,6 +86,7 @@ const RecentProjects = () => {
           padding: 18px 24px;
           opacity: 0;
           transition: all 0.3s ease-in-out;
+          transform: translateY(-50px);
           h3,
           p {
             margin: 0;

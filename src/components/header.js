@@ -80,6 +80,17 @@ const Header = () => {
             }
           }
         }
+        .megamenu-content {
+          line-height: 2;
+          display: flex;
+          flex-direction: column;
+          & > div {
+            margin-top: auto;
+            a {
+              color: inherit;
+            }
+          }
+        }
       `}
     >
       <div className="menu">
@@ -142,7 +153,16 @@ const Header = () => {
                 currentIndex === index ? " visible" : ""
               }`}
             >
-              <div>{item.content.text}</div>
+              <div className="megamenu-content">
+                {item.content.text}
+                <div>
+                  <a href="mailto:hola@alfilerstudio.com">
+                    hola@alfilerstudio.com
+                  </a>{" "}
+                  <br />
+                  <a href="tel:4424644699">442 464 46 99</a>
+                </div>
+              </div>
               <div>
                 <Img fluid={item.image.fluid} />
               </div>

@@ -48,7 +48,7 @@ const OurDayToDay = ({ gallery }) => {
         <ParallaxProvider>
           <div className="gallery-wrapper d-flex">
             <div>
-              <Parallax y={[0, 5]}>
+              <Parallax y={[0, 10]}>
                 {col1.map((item, index) => (
                   <Img
                     key={`gallery-col1-item-${index}`}
@@ -59,7 +59,7 @@ const OurDayToDay = ({ gallery }) => {
               </Parallax>
             </div>
             <div>
-              <Parallax y={[0, -10]}>
+              <Parallax y={[0, 30]}>
                 {col2.map((item, index) => (
                   <Img
                     key={`gallery-col2-item-${index}`}

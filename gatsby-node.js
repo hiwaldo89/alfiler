@@ -8,13 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allPrismicProjects {
         edges {
           node {
-            id
             uid
-            data {
-              title {
-                text
-              }
-            }
           }
         }
       }

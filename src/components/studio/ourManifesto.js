@@ -6,7 +6,7 @@ const OurManifesto = ({ manifesto }) => {
   return (
     <div
       css={css`
-        padding-bottom: 190px;
+        padding-bottom: 100px;
         background-color: ${colors.lightgray};
         h2 {
           font-weight: 300;
@@ -18,14 +18,14 @@ const OurManifesto = ({ manifesto }) => {
           width: 100%;
           margin-left: -15px;
           margin-right: -15px;
-          @media (min-width: 992px) {
-            width: 90%;
-          }
           .column {
-            width: 50%;
-            flex: 0 0 50%;
+            width: 45%;
+            flex: 0 0 45%;
             padding-left: 15px;
             padding-right: 15px;
+            &:first-of-type {
+              margin-right: auto;
+            }
             p {
               line-height: 1.8;
             }

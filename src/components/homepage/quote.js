@@ -33,6 +33,7 @@ const Quote = ({ quote }) => {
         h2 {
           margin: 0;
           font-weight: 400;
+          font-size: 2.5rem;
           span {
             cursor: pointer;
             font-weight: 700;

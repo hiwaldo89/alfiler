@@ -1,23 +1,18 @@
 import React from "react"
 import { css } from "@emotion/core"
 import ServicesBlock from "../servicesBlock"
+import useHomepage from "../../utils/useHomepage"
 
-const OurServices = ({ services }) => {
+const OurServices = () => {
+  const { services } = useHomepage()
   return (
     <div
       className="container"
       css={css`
-        padding-bottom: 52px;
-        h2 {
-          font-size: 50px;
-          line-height: 1.2em;
-          margin-bottom: 80px;
-        }
+        padding-top: 5rem;
+        padding-bottom: 5rem;
       `}
     >
-      <h2>
-        This is how <br /> we do it
-      </h2>
       <ServicesBlock services={services} />
     </div>
   )

@@ -1,14 +1,33 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import Img from "gatsby-image"
-//import { Swiper, SwiperSlide } from "swiper/react"
-import Swiper from "react-id-swiper"
+import Slider from "react-slick"
 import { css } from "@emotion/core"
 import { colors } from "../../utils/colors"
-import "swiper/swiper.scss"
+import "slick-carousel/slick/slick.css"
 
 const OurTeam = ({ members }) => {
   const [activeMember, setActiveMember] = useState(0)
   const [movedSlider, setMovedSlider] = useState(false)
+  const slickSlider = useRef(null)
+  const changeSlide = index => {
+    slickSlider.current.slickGoTo(index, null)
+    console.log(slickSlider.current)
+  }
+
+  const settings = {
+    infinite: true,
+    slidesToShow: 3,
+    arrows: false,
+    swipe: false,
+    slidesToScroll: 1,
+    beforeChange: (oldIndex, newIndex) => {
+      setActiveMember(newIndex)
+      if (!movedSlider) {
+        setMovedSlider(true)
+      }
+    },
+  }
+
   return (
     <div
       css={css`
@@ -21,7 +40,7 @@ const OurTeam = ({ members }) => {
           padding-top: 3rem;
         }
         .slider-wrapper {
-          overflow: hidden;
+          overflow: visible;
           @media (min-width: 992px) {
             padding-left: calc(50vw - 465px);
           }
@@ -29,8 +48,9 @@ const OurTeam = ({ members }) => {
             padding-left: calc(50vw - 555px);
           }
         }
-        .swiper-container {
+        .slick-list {
           overflow: visible;
+          margin-left: -25px;
           @media (min-width: 992px) {
             margin-right: calc(50vw - 465px);
             ${!movedSlider && "clip-path: inset(0 -50vw 0 0);"}
@@ -39,9 +59,11 @@ const OurTeam = ({ members }) => {
             margin-right: calc(50vw - 555px);
           }
         }
-        .swiper-slide {
+        .slick-slide {
+          padding-left: 25px;
+          padding-right: 25px;
           opacity: 0.5;
-          &-visible {
+          &.slick-active {
             opacity: 1;
           }
         }
@@ -69,23 +91,9 @@ const OurTeam = ({ members }) => {
         <h2>Our team</h2>
       </div>
       <div className="slider-wrapper">
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={3}
-          watchSlidesVisibility
-          loop
-          loopAdditionalSlides={1}
-          on={{
-            slideChange: swiper => {
-              setActiveMember(swiper.realIndex)
-              if (!movedSlider && swiper.realIndex !== 0) {
-                setMovedSlider(true)
-              }
-            },
-          }}
-        >
+        <Slider {...settings} ref={slickSlider}>
           {members.map((member, index) => (
-            <div key={`member-${index}`}>
+            <div key={`member-${index}`} onClick={() => changeSlide(index)}>
               <Img
                 fluid={member.image}
                 alt={member.name}
@@ -98,7 +106,7 @@ const OurTeam = ({ members }) => {
               />
             </div>
           ))}
-        </Swiper>
+        </Slider>
       </div>
       <div className="container">
         <div className="member-info">
