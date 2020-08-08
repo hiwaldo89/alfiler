@@ -66,9 +66,26 @@ const WeddingBoutique = ({ weddingBoutique, project }) => {
       <div className="container">
         <div className="d-flex">
           <div>
-            <h2>{weddingBoutique.title}</h2>
-            <p className="about-service">{weddingBoutique.content}</p>
-            <ul>
+            <h2
+              data-sal="slide-up"
+              data-sal-duration="350"
+              data-sal-delay="300"
+            >
+              {weddingBoutique.title}
+            </h2>
+            <p
+              className="about-service"
+              data-sal="slide-up"
+              data-sal-duration="350"
+              data-sal-delay="300"
+            >
+              {weddingBoutique.content}
+            </p>
+            <ul
+              data-sal="slide-up"
+              data-sal-duration="350"
+              data-sal-delay="300"
+            >
               {weddingBoutique.services.map((service, index) => (
                 <li key={`wb-service-${index}`}>{service}</li>
               ))}

@@ -88,7 +88,9 @@ const OurTeam = ({ members }) => {
       `}
     >
       <div className="container">
-        <h2>Our team</h2>
+        <h2 data-sal="slide-up" data-sal-duration="350">
+          Our team
+        </h2>
       </div>
       <div className="slider-wrapper">
         <Slider {...settings} ref={slickSlider}>

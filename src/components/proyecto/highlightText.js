@@ -38,7 +38,14 @@ const HighlightText = ({ content }) => {
             {content.text.raw.map((line, index) => {
               return (
                 line.text !== "" && (
-                  <span key={`line-${index}`}>{line.text}</span>
+                  <span
+                    key={`line-${index}`}
+                    data-sal={index > 0 ? "slide-up" : ""}
+                    data-sal-duration="350"
+                    data-sal-delay="300"
+                  >
+                    {line.text}
+                  </span>
                 )
               )
             })}

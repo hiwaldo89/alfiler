@@ -15,7 +15,7 @@ const OurServices = ({ services }) => {
         }
       `}
     >
-      <h2>
+      <h2 data-sal="slide-up" data-sal-delay="300" data-sal-duration="350">
         This is how <br /> we do it
       </h2>
       <ServicesBlock services={services} />

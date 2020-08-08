@@ -24,7 +24,7 @@ const TwoColImg = ({ content }) => {
       <ParallaxProvider>
         <div className="d-flex">
           <div>
-            <Parallax y={[0, 10]}>
+            <Parallax y={[0, -20]}>
               <Img
                 fluid={content.left_image.fluid}
                 alt={content.left_image.alt || ""}
@@ -32,7 +32,7 @@ const TwoColImg = ({ content }) => {
             </Parallax>
           </div>
           <div>
-            <Parallax y={[0, 30]}>
+            <Parallax y={[0, 50]}>
               <Img
                 fluid={content.right_image.fluid}
                 alt={content.right_image.alt || ""}

@@ -26,8 +26,8 @@ const Footer = () => {
         }
         .d-flex {
           & > div {
-            width: 33.3333333%;
-            flex: 0 0 33.333333%;
+            width: 25%;
+            flex: 0 0 25%;
             h4 {
               margin-top: 0;
               margin-bottom: 50px;
@@ -52,10 +52,6 @@ const Footer = () => {
         <div className="text-center">
           <div className="text-left inline-block">
             <a href="tel:4424644699">442 464 4699</a> <br />
-            <a href="mailto:contacto@alfilerstudio.com">
-              contacto@alfilerstudio.com
-            </a>{" "}
-            <br />
             <a href="https://www.facebook.com/AlfilerStudio" target="_blank">
               Facebook
             </a>{" "}
@@ -70,6 +66,13 @@ const Footer = () => {
             <p>Senda Del Carruaje 102 Int. F </p>
             <p>Milenio III.</p>
             <p>Querétaro, Qro.</p>
+          </div>
+        </div>
+        <div className="text-center">
+          <div className="text-left inline-block">
+            <p>Horarios:</p>
+            <p>L a J: 9:00 - 18:00</p>
+            <p>V: 9:00 - 16:00</p>
           </div>
         </div>
       </div>

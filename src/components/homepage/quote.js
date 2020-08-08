@@ -5,14 +5,19 @@ import { colors } from "../../utils/colors"
 const QuoteText = ({ quote, onMouseEnter, onMouseLeave }) => {
   const definitionMarker = quote.spans[0]
   return (
-    <h2>
+    <h2 data-sal="slide-up" data-sal-delay="300" data-sal-duration="350">
       {quote.text.substring(0, definitionMarker.start)}
       <span
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         role="definition"
       >
-        {quote.text.substring(definitionMarker.start, definitionMarker.end)}
+        <span>
+          {quote.text.substring(definitionMarker.start, definitionMarker.end)}
+        </span>
+        <span>
+          {quote.text.substring(definitionMarker.start, definitionMarker.end)}
+        </span>
       </span>{" "}
       {quote.text.substring(definitionMarker.end, quote.text.length)}
     </h2>
@@ -38,6 +43,36 @@ const Quote = ({ quote }) => {
             cursor: pointer;
             font-weight: 700;
             font-style: italic;
+            display: inline-block;
+            position: relative;
+
+            & > span {
+              &:first-of-type {
+                opacity: 1;
+                transition: all 0.3s ease-in-out;
+              }
+              &:last-of-type {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                font-style: normal;
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+              }
+            }
+            &:hover {
+              & > span {
+                &:first-of-type {
+                  opacity: 0;
+                }
+                &:last-of-type {
+                  opacity: 1;
+                }
+              }
+            }
           }
         }
 

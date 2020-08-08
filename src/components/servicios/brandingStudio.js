@@ -24,8 +24,12 @@ const BrandingStudio = ({ brandingStudio }) => {
     >
       <div className="container">
         <div className="content">
-          <h2>{brandingStudio.title}</h2>
-          <p>{brandingStudio.content}</p>
+          <h2 data-sal="slide-up" data-sal-delay="300" data-sal-duration="350">
+            {brandingStudio.title}
+          </h2>
+          <p data-sal="slide-up" data-sal-delay="400" data-sal-duration="350">
+            {brandingStudio.content}
+          </p>
         </div>
       </div>
     </div>

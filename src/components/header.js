@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import { colors } from "../utils/colors"
 import Logo from "../images/logo.svg"
 import useMenu from "../utils/useMenu"
+import Headroom from "react-headroom"
 
 const Header = () => {
   const { prismicMenu } = useMenu()
@@ -13,164 +14,198 @@ const Header = () => {
   const [timer, setTimer] = useState(null)
 
   return (
-    <header
-      css={css`
-        padding-top: 3rem;
-        padding-bottom: 1.5rem;
-        background-color: ${colors.lightgray};
-        position: relative;
-        z-index: 1200;
-        .menu {
-          img {
-            width: 54px;
-            height: auto;
-          }
-          nav {
-            margin-left: auto;
-          }
-          ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            li {
-              margin-left: 2.5rem;
-              a {
-                display: block;
-                color: #000000;
-              }
-            }
-          }
-        }
-        .megamenu {
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          padding-top: 1.5rem;
+    <Headroom>
+      <header
+        css={css`
+          padding-top: 3rem;
           padding-bottom: 1.5rem;
-          transform: translateY(95%);
-          background: ${colors.lightgray};
-          opacity: 0;
-          transition: all 0.3s ease-in-out;
-          pointer-events: none;
-          &.show {
-            opacity: 1;
-            transform: translateY(100%);
-            pointer-events: all;
+          background-color: ${colors.lightgray};
+          position: relative;
+          z-index: 1200;
+          .menu {
+            img {
+              width: 54px;
+              height: auto;
+            }
+            nav {
+              margin-left: auto;
+            }
+            ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+              li {
+                margin-left: 2.5rem;
+                a {
+                  display: block;
+                  color: #000000;
+                  position: relative;
+                  &:before,
+                  &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    margin: auto;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: all 0.3s ease-in-out;
+                  }
+                  &:after {
+                    width: 100%;
+                    height: 2px;
+                    background-color: ${colors.lightgray};
+                    bottom: 0;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                  }
+                  &:before {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: #000000;
+                    top: 0;
+                    bottom: 0;
+                    left: -8px;
+                  }
+                  &:hover,
+                  &.active {
+                    &:before,
+                    &:after {
+                      opacity: 1;
+                    }
+                  }
+                }
+              }
+            }
           }
-          &__item {
-            margin: auto;
-            display: none;
-            @media (min-width: 768px) {
-              max-width: 85%;
+          .megamenu {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            transform: translateY(95%);
+            background: ${colors.lightgray};
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+            &.show {
+              opacity: 1;
+              transform: translateY(100%);
+              pointer-events: all;
             }
-            &.visible {
-              display: flex;
+            &__item {
+              margin: auto;
+              display: none;
+              @media (min-width: 768px) {
+                max-width: 85%;
+              }
+              &.visible {
+                display: flex;
+              }
+              & > div {
+                &:nth-of-type(1) {
+                  width: 45%;
+                  flex: 0 0 45%;
+                }
+                &:nth-of-type(2) {
+                  width: 40%;
+                  flex: 0 0 40%;
+                  margin-left: auto;
+                }
+              }
             }
+          }
+          .megamenu-content {
+            line-height: 2;
+            display: flex;
+            flex-direction: column;
             & > div {
-              &:nth-of-type(1) {
-                width: 45%;
-                flex: 0 0 45%;
-              }
-              &:nth-of-type(2) {
-                width: 40%;
-                flex: 0 0 40%;
-                margin-left: auto;
+              margin-top: auto;
+              a {
+                color: inherit;
               }
             }
           }
-        }
-        .megamenu-content {
-          line-height: 2;
-          display: flex;
-          flex-direction: column;
-          & > div {
-            margin-top: auto;
-            a {
-              color: inherit;
-            }
-          }
-        }
-      `}
-    >
-      <div className="menu">
-        <div className="container d-flex items-center">
-          <Link to="/">
-            <img src={Logo} alt="Alfiler Branding Studio" />
-          </Link>
-          <nav>
-            <ul className="d-flex">
-              {prismicMenu.data.menu_item.map((item, index) => (
-                <li
-                  key={`menu-item-${prismicMenu.id}-${index}`}
-                  onMouseEnter={() => {
-                    clearTimeout(timer)
-                    setShowMegamenu(true)
-                    setCurrentIndex(index)
-                  }}
-                  onMouseLeave={() => {
-                    setTimer(
-                      setTimeout(function () {
-                        setShowMegamenu(false)
-                      }, 500)
-                    )
-                  }}
-                >
-                  {item.external ? (
-                    <a href={item.link.text} target="_blank">
-                      {item.titulo.text}
-                    </a>
-                  ) : (
-                    <Link to={item.link.text} activeClassName="active">
-                      {item.titulo.text}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div
-        className={`megamenu${showMegamenu ? " show" : ""}`}
-        onMouseEnter={() => {
-          clearTimeout(timer)
-          setShowMegamenu(true)
-        }}
-        onMouseLeave={() => {
-          setTimer(
-            setTimeout(function () {
-              setShowMegamenu(false)
-            }, 500)
-          )
-        }}
+        `}
       >
-        <div className="container">
-          {prismicMenu.data.menu_item.map((item, index) => (
-            <div
-              key={`megamenu-${prismicMenu.id}-${index}`}
-              className={`megamenu__item${
-                currentIndex === index ? " visible" : ""
-              }`}
-            >
-              <div className="megamenu-content">
-                {item.content.text}
+        <div className="menu">
+          <div className="container d-flex items-center">
+            <Link to="/">
+              <img src={Logo} alt="Alfiler Branding Studio" />
+            </Link>
+            <nav>
+              <ul className="d-flex">
+                {prismicMenu.data.menu_item.map((item, index) => (
+                  <li
+                    key={`menu-item-${prismicMenu.id}-${index}`}
+                    onMouseEnter={() => {
+                      clearTimeout(timer)
+                      setShowMegamenu(true)
+                      setCurrentIndex(index)
+                    }}
+                    onMouseLeave={() => {
+                      setTimer(
+                        setTimeout(function () {
+                          setShowMegamenu(false)
+                        }, 500)
+                      )
+                    }}
+                  >
+                    {item.external ? (
+                      <a href={item.link.text} target="_blank">
+                        {item.titulo.text}
+                      </a>
+                    ) : (
+                      <Link to={item.link.text} activeClassName="active">
+                        {item.titulo.text}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div
+          className={`megamenu${showMegamenu ? " show" : ""}`}
+          onMouseEnter={() => {
+            clearTimeout(timer)
+            setShowMegamenu(true)
+          }}
+          onMouseLeave={() => {
+            setTimer(
+              setTimeout(function () {
+                setShowMegamenu(false)
+              }, 500)
+            )
+          }}
+        >
+          <div className="container">
+            {prismicMenu.data.menu_item.map((item, index) => (
+              <div
+                key={`megamenu-${prismicMenu.id}-${index}`}
+                className={`megamenu__item${
+                  currentIndex === index ? " visible" : ""
+                }`}
+              >
+                <div className="megamenu-content">
+                  {item.content.text}
+                  <div>
+                    <a href="tel:4424644699">442 464 46 99</a>
+                  </div>
+                </div>
                 <div>
-                  <a href="mailto:hola@alfilerstudio.com">
-                    hola@alfilerstudio.com
-                  </a>{" "}
-                  <br />
-                  <a href="tel:4424644699">442 464 46 99</a>
+                  <Img fluid={item.image.fluid} />
                 </div>
               </div>
-              <div>
-                <Img fluid={item.image.fluid} />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </Headroom>
   )
 }
 

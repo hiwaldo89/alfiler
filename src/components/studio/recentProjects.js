@@ -97,7 +97,7 @@ const RecentProjects = () => {
         }
       `}
     >
-      <h2>
+      <h2 data-sal="slide-up" data-sal-duration="350" data-sal-delay="300">
         <span>
           Chasing whys <br />
           and hows
@@ -132,6 +132,8 @@ const RecentProjects = () => {
             <div
               className={`project${index === focusedProject ? " focused" : ""}`}
               key={`recent-project-${project.node.uid}`}
+              data-sal="slide-left"
+              data-sal-duration="350"
             >
               <Link to={`/proyectos/${project.node.uid}`}>
                 <Img fluid={project.node.data.cover_image.fluid} />

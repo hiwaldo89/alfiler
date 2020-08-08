@@ -109,7 +109,11 @@ const Quotes = ({ quotes }) => {
       <div className="container">
         <div className="d-flex">
           <div>
-            <h2>
+            <h2
+              data-sal="slide-up"
+              data-sal-duration="350"
+              data-sal-delay="300"
+            >
               Rumor <br /> has it
             </h2>
           </div>

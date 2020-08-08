@@ -37,10 +37,15 @@ const TextBlock = ({ content }) => {
                 ? "heading-1"
                 : "heading-2"
             }`}
+            data-sal="slide-up"
+            data-sal-duration="350"
+            data-sal-delay="300"
           >
             {content.title1.raw[0].text}
           </h2>
-          <p>{content.content.text}</p>
+          <p data-sal="slide-up" data-sal-duration="350" data-sal-delay="400">
+            {content.content.text}
+          </p>
         </div>
       </div>
     </div>

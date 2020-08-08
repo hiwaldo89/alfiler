@@ -34,12 +34,24 @@ const OurManifesto = ({ manifesto }) => {
       `}
     >
       <div className="container">
-        <h2>{manifesto.title}</h2>
+        <h2 data-sal="slide-up" data-sal-duration="350">
+          {manifesto.title}
+        </h2>
         <div className="wrapper d-flex">
-          <div className="column">
+          <div
+            className="column"
+            data-sal="slide-up"
+            data-sal-delay="300"
+            data-sal-duration="350"
+          >
             <p>{manifesto.column_1}</p>
           </div>
-          <div className="column">
+          <div
+            className="column"
+            data-sal="slide-up"
+            data-sal-delay="350"
+            data-sal-duration="350"
+          >
             <p>{manifesto.column_2}</p>
           </div>
         </div>

@@ -89,7 +89,7 @@ const RecentProjects = () => {
       `}
     >
       <div className="container">
-        <h2>
+        <h2 data-sal="slide-up" data-sal-delay="300" data-sal-duration="350">
           Chasing whys <br /> and hows
         </h2>
         <div className="d-flex">
@@ -123,6 +123,8 @@ const RecentProjects = () => {
                   index === focusedProject ? " focused" : ""
                 }`}
                 key={`recent-project-${project.node.uid}`}
+                data-sal="slide-left"
+                data-sal-duration="350"
               >
                 <Link to={`/proyectos/${project.node.uid}`}>
                   <Img fluid={project.node.data.cover_image.fluid} />

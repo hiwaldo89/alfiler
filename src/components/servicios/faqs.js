@@ -26,7 +26,7 @@ const Faqs = ({ faqs }) => {
       `}
     >
       <div className="faqs-wrapper">
-        <h2>
+        <h2 data-sal="slide-up" data-sal-duration="350" data-sal-delay="300">
           We are <br /> frequently <br /> asked
         </h2>
         {faqs.map((faq, index) => (

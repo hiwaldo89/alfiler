@@ -1,16 +1,16 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { css } from "@emotion/core"
 
 const AccordionItem = ({ item, opened = false }) => {
   const [active, setActive] = useState(opened)
-  const toggleAccordion = e => {
-    const panel = e.target.nextElementSibling
-    if (active) {
-      panel.style.maxHeight = null
+  const panel = useRef(null)
+  useEffect(() => {
+    if (!active) {
+      panel.current.style.maxHeight = null
     } else {
-      panel.style.maxHeight = panel.scrollHeight + "px"
+      panel.current.style.maxHeight = panel.current.scrollHeight + "px"
     }
-  }
+  }, [active])
 
   return (
     <div
@@ -52,17 +52,11 @@ const AccordionItem = ({ item, opened = false }) => {
         }
       `}
     >
-      <button
-        onClick={e => {
-          setActive(!active)
-          toggleAccordion(e)
-        }}
-        className={`${active ? "active" : ""}`}
-      >
+      <button onClick={() => setActive(!active)}>
         {active ? <span>-</span> : <span>+</span>}
         {item.title}
       </button>
-      <div className="panel">
+      <div className="panel" ref={panel}>
         <p>{item.content}</p>
       </div>
     </div>

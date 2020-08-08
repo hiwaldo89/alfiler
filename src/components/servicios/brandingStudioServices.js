@@ -33,7 +33,12 @@ const BrandingStudioServices = ({ services }) => {
         <div className="d-flex services-wrapper">
           {Object.keys(services).map((item, index) => {
             return (
-              <div key={`service-item-${index}`}>
+              <div
+                key={`service-item-${index}`}
+                data-sal="slide-up"
+                data-sal-duration="350"
+                data-sal-delay="300"
+              >
                 <h2>
                   {item === "confeccion"
                     ? "Confección"

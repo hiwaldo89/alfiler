@@ -125,7 +125,12 @@ const ProjectGrid = ({ projects }) => {
         <div className="d-flex">
           {allProjects.length > 0 ? (
             allProjects.slice(0, itemsPerPage).map(project => (
-              <div key={project.slug}>
+              <div
+                key={project.slug}
+                data-sal="fade"
+                data-sal-duration="350"
+                data-sal-delay="300"
+              >
                 <Link to={`/proyectos/${project.slug}`} className="project">
                   <Img
                     fluid={project.image}
