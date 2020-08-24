@@ -47,6 +47,9 @@ const ProjectGrid = ({ projects }) => {
             margin: 0 30px;
             background: transparent;
             border: none;
+            &.active {
+              font-weight: 700;
+            }
           }
         }
         .d-flex {
@@ -108,6 +111,7 @@ const ProjectGrid = ({ projects }) => {
             onClick={() => {
               filterProjects("")
             }}
+            className={filterBy.current === "" ? "active" : ""}
           >
             Todos
           </button>
@@ -117,6 +121,7 @@ const ProjectGrid = ({ projects }) => {
               onClick={() => {
                 filterProjects(category.slug)
               }}
+              className={filterBy.current === category.slug ? "active" : ""}
             >
               {category.title}
             </button>

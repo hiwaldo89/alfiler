@@ -24,12 +24,13 @@ const useStudioPage = () => {
               text
             }
             photo {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
+              fluid {
+                ...GatsbyPrismicImageFluid
+              }
+            }
+            hover_photo {
+              fluid {
+                ...GatsbyPrismicImageFluid
               }
             }
             name {
@@ -57,7 +58,8 @@ const useStudioPage = () => {
       name: member.name.text,
       jobPosition: member.job_position.text,
       bio: member.bio.text,
-      image: member.photo.localFile.childImageSharp.fluid,
+      image: member.photo.fluid,
+      hoverImage: member.hover_photo.fluid,
     })),
     gallery: prismicStudio.data.our_day_to_day.map(image => image.image.fluid),
   }

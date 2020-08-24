@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import ProjectGrid from "../components/proyectos/projectGrid"
 import Quotes from "../components/proyectos/quotes"

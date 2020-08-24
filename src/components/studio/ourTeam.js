@@ -85,6 +85,19 @@ const OurTeam = ({ members }) => {
             font-size: 1.17em;
           }
         }
+        .member {
+          position: relative;
+          .member__hoverimg {
+            z-index: 2;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+          }
+          &:hover {
+            .member__hoverimg {
+              opacity: 1;
+            }
+          }
+        }
       `}
     >
       <div className="container">
@@ -95,7 +108,11 @@ const OurTeam = ({ members }) => {
       <div className="slider-wrapper">
         <Slider {...settings} ref={slickSlider}>
           {members.map((member, index) => (
-            <div key={`member-${index}`} onClick={() => changeSlide(index)}>
+            <div
+              key={`member-${index}`}
+              onClick={() => changeSlide(index)}
+              className="member"
+            >
               <Img
                 fluid={member.image}
                 alt={member.name}
@@ -105,7 +122,24 @@ const OurTeam = ({ members }) => {
                 placeholderStyle={{
                   opacity: 0,
                 }}
+                className="member__img"
               />
+              {member.hoverImage && (
+                <Img
+                  fluid={member.hoverImage}
+                  alt={member.name}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  imgStyle={{ opacity: 1 }}
+                  placeholderStyle={{ opacity: 0 }}
+                  className="member__hoverimg"
+                />
+              )}
             </div>
           ))}
         </Slider>

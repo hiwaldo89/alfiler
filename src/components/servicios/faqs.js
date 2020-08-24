@@ -10,8 +10,9 @@ const Faqs = ({ faqs }) => {
         margin-bottom: 120px;
         margin-top: 4rem;
         h2 {
-          font-size: 2rem;
+          font-size: 2.5rem;
           line-height: 1.3;
+          margin-bottom: 2.5rem;
         }
         .faqs-wrapper {
           width: 70%;
@@ -20,7 +21,9 @@ const Faqs = ({ faqs }) => {
         }
         .faq {
           &:not(:last-of-type) {
-            margin-bottom: 1rem;
+            margin-bottom: 1.3rem;
+            border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+            padding-bottom: 1.3rem;
           }
         }
       `}

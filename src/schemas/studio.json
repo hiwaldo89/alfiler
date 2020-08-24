@@ -52,6 +52,17 @@
               "label": "Photo"
             }
           },
+          "hover_photo": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": 800,
+                "height": 800
+              },
+              "thumbnails": [],
+              "label": "Hover Photo"
+            }
+          },
           "name": {
             "type": "StructuredText",
             "config": {

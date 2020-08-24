@@ -14,7 +14,13 @@ const Header = () => {
   const [timer, setTimer] = useState(null)
 
   return (
-    <Headroom>
+    <Headroom
+      css={css`
+        .headroom--pinned header {
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+      `}
+    >
       <header
         css={css`
           padding-top: 3rem;
@@ -91,9 +97,11 @@ const Header = () => {
             opacity: 0;
             transition: all 0.3s ease-in-out;
             pointer-events: none;
+            box-shadow: 0 20px 20px -20px rgba(0, 0, 0, 0.1);
             &.show {
               opacity: 1;
               transform: translateY(100%);
+              bottom: 1px;
               pointer-events: all;
             }
             &__item {
@@ -192,9 +200,10 @@ const Header = () => {
                 }`}
               >
                 <div className="megamenu-content">
+                  <h3>{item.titulo.text}</h3>
                   {item.content.text}
                   <div>
-                    <a href="tel:4424644699">442 464 46 99</a>
+                    <a href="tel:4424644699">WA: 442 464 46 99</a>
                   </div>
                 </div>
                 <div>

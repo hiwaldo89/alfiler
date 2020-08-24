@@ -6,6 +6,13 @@ a {
   text-decoration: none;
 }
 
+button {
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
 .container {
   padding-left: 15px;
   padding-right: 15px;

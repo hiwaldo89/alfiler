@@ -34,6 +34,8 @@ const RecentProjects = () => {
         h3 {
           line-height: 1.2em;
           margin-bottom: 60px;
+          font-weight: 300;
+          font-size: 2rem;
         }
         .d-flex {
           & > div {
@@ -94,10 +96,7 @@ const RecentProjects = () => {
         </h2>
         <div className="d-flex">
           <div>
-            <h3>
-              Proyectos <br />
-              recientes
-            </h3>
+            <h3>Proyectos recientes</h3>
             <ul>
               {projects.map((project, index) => (
                 <li key={`recent-project-list-${project.node.uid}`}>
@@ -123,12 +122,12 @@ const RecentProjects = () => {
                   index === focusedProject ? " focused" : ""
                 }`}
                 key={`recent-project-${project.node.uid}`}
-                data-sal="slide-left"
-                data-sal-duration="350"
               >
-                <Link to={`/proyectos/${project.node.uid}`}>
-                  <Img fluid={project.node.data.cover_image.fluid} />
-                </Link>
+                <div data-sal="slide-left" data-sal-duration="350">
+                  <Link to={`/proyectos/${project.node.uid}`}>
+                    <Img fluid={project.node.data.cover_image.fluid} />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
