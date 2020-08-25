@@ -17,6 +17,18 @@ const useRecentProjects = () => {
                   ...GatsbyPrismicImageFluid
                 }
               }
+              category {
+                category1 {
+                  document {
+                    ... on PrismicCategory {
+                      data {
+                        name
+                      }
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }

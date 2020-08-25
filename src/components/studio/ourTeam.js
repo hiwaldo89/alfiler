@@ -80,9 +80,14 @@ const OurTeam = ({ members }) => {
           width: 40%;
           h3 {
             width: 50%;
+            margin-top: 2.5rem;
           }
           h4 {
             font-size: 1.17em;
+            margin-top: 1rem;
+          }
+          p {
+            line-height: 1.8;
           }
         }
         .member {

@@ -3,9 +3,10 @@ import { css } from "@emotion/core"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { colors } from "../utils/colors"
-import Logo from "../images/logo.svg"
+//import Logo from "../images/logo.svg"
 import useMenu from "../utils/useMenu"
 import Headroom from "react-headroom"
+import Logo from "../images/logo.inline.svg"
 
 const Header = () => {
   const { prismicMenu } = useMenu()
@@ -29,9 +30,24 @@ const Header = () => {
           position: relative;
           z-index: 1200;
           .menu {
-            img {
+            .logo {
               width: 54px;
               height: auto;
+              .complete-a {
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+              }
+              .dot {
+                transition: all 0.3s ease-in-out;
+              }
+              &:hover {
+                .complete-a {
+                  opacity: 1;
+                }
+                .dot {
+                  opacity: 0;
+                }
+              }
             }
             nav {
               margin-left: auto;
@@ -46,6 +62,7 @@ const Header = () => {
                   display: block;
                   color: #000000;
                   position: relative;
+                  letter-spacing: 0.1rem;
                   &:before,
                   &:after {
                     content: "";
@@ -91,7 +108,7 @@ const Header = () => {
             bottom: 0;
             width: 100%;
             padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
+            padding-bottom: 3rem;
             transform: translateY(95%);
             background: ${colors.lightgray};
             opacity: 0;
@@ -142,7 +159,8 @@ const Header = () => {
         <div className="menu">
           <div className="container d-flex items-center">
             <Link to="/">
-              <img src={Logo} alt="Alfiler Branding Studio" />
+              {/* <img src={Logo} alt="Alfiler Branding Studio" /> */}
+              <Logo className="logo" />
             </Link>
             <nav>
               <ul className="d-flex">

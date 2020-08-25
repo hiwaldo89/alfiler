@@ -3,7 +3,8 @@ import Layout from "../components/layout"
 import OurManifesto from "../components/studio/ourManifesto"
 import OurTeam from "../components/studio/ourTeam"
 import OurDayToDay from "../components/studio/ourDayToDay"
-import RecentProjects from "../components/studio/recentProjects"
+//import RecentProjects from "../components/studio/recentProjects"
+import RecentProjects from "../components/recentProjects"
 import SEO from "../components/seo"
 import useStudioPage from "../utils/useStudioPage"
 
@@ -16,7 +17,7 @@ const Studio = () => {
       <OurManifesto manifesto={manifesto} />
       <OurTeam members={teamMembers} />
       <OurDayToDay gallery={gallery} />
-      <RecentProjects />
+      <RecentProjects limit={2} />
     </Layout>
   )
 }

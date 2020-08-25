@@ -1,13 +1,12 @@
 import React from "react"
 import { css } from "@emotion/core"
-import { colors } from "../utils/colors"
 import Logo from "../images/alfiler-footer-logo.svg"
 
 const Footer = () => {
   return (
     <footer
       css={css`
-        background-color: ${colors.lightgray};
+        background-color: #f0f0f0;
         padding-top: 72px;
         padding-bottom: 70px;
         img {
