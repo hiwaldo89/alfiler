@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
 import { css } from "@emotion/core"
 import { colors } from "../../utils/colors"
 import useCategories from "../../utils/useCategories"
+import Project from "./project"
+import Fade from "react-reveal"
 
 const ProjectGrid = ({ projects }) => {
   const items = 9
@@ -126,35 +126,9 @@ const ProjectGrid = ({ projects }) => {
         <div className="d-flex">
           {allProjects.length > 0 ? (
             allProjects.slice(0, itemsPerPage).map(project => (
-              <div
-                key={project.slug}
-                data-sal="fade"
-                data-sal-duration="350"
-                data-sal-delay="300"
-              >
-                <Link
-                  to={`/proyectos/${project.slug}`}
-                  className="project-wrapper"
-                >
-                  <div className="project">
-                    <Img
-                      fluid={project.image}
-                      alt={project.title}
-                      style={{
-                        position: "absolute",
-                        width: "100%",
-                        height: "100%",
-                        top: "0",
-                        left: "0",
-                      }}
-                    />
-                  </div>
-                  <div className="project__info">
-                    {project.category && <span>{project.category}</span>}
-                    <h3>{project.title}</h3>
-                  </div>
-                </Link>
-              </div>
+              <Fade key={project.slug}>
+                <Project project={project} />
+              </Fade>
             ))
           ) : (
             <h3>Lo sentimos, no hay proyectos con esa categoría</h3>

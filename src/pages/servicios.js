@@ -17,7 +17,6 @@ const Servicios = () => {
     weddingBoutiqueProject,
     faqs,
   } = useServiciosPage()
-  console.log(weddingBoutique)
   return (
     <Layout>
       <SEO title="Servicios" />

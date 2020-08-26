@@ -1,8 +1,7 @@
 import React from "react"
 import useRecentProjects from "../utils/useRecentProjects"
 import { css } from "@emotion/core"
-import Img from "gatsby-image"
-import { Link } from "gatsby"
+import Project from "./project"
 
 const RecentProjects = ({ limit = 4 }) => {
   const projects = useRecentProjects().slice(0, limit)
@@ -51,24 +50,7 @@ const RecentProjects = ({ limit = 4 }) => {
       </h2>
       <div className="d-flex">
         {projects.map(project => (
-          <div className="project" key={project.node.id}>
-            <div data-sal="slide-up" data-sal-duration="350">
-              <Link to={`/proyectos/${project.node.uid}`}>
-                <Img fluid={project.node.data.cover_image.fluid} />
-                <div className="project__info">
-                  {project.node.data.category[0].category1.document && (
-                    <span>
-                      {
-                        project.node.data.category[0].category1.document.data
-                          .name
-                      }
-                    </span>
-                  )}
-                  <h3>{project.node.data.title.text}</h3>
-                </div>
-              </Link>
-            </div>
-          </div>
+          <Project project={project} key={project.node.id} />
         ))}
       </div>
     </div>

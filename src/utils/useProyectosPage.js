@@ -12,6 +12,13 @@ const useProyectosPage = () => {
             category {
               category1 {
                 uid
+                document {
+                  ... on PrismicCategory {
+                    data {
+                      name
+                    }
+                  }
+                }
               }
             }
             cover_image {
@@ -54,6 +61,9 @@ const useProyectosPage = () => {
     projects: allPrismicProjects.nodes.map(project => ({
       title: project.data.title.text,
       category: project.data.category.map(category => category.category1.uid),
+      categoryTitle: project.data.category.map(category =>
+        category.category1.document ? category.category1.document.data.name : ""
+      ),
       slug: project.uid,
       image: project.data.cover_image.fluid,
     })),

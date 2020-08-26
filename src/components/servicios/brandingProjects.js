@@ -1,8 +1,7 @@
 import React from "react"
-import Img from "gatsby-image"
 import { css } from "@emotion/core"
-import { Link } from "gatsby"
 import { colors } from "../../utils/colors"
+import Project from "./project"
 
 const BrandingProjects = ({ projects }) => {
   return (
@@ -46,25 +45,7 @@ const BrandingProjects = ({ projects }) => {
       <div className="container">
         <div className="d-flex">
           {projects.map((project, index) => (
-            <div key={project.id} className="project">
-              <Link to={`/proyectos/${project.slug}`}>
-                <div className="project-img">
-                  <Img
-                    fluid={project.image}
-                    style={
-                      index === 0
-                        ? {
-                            position: "absolute",
-                            width: "100%",
-                            height: "100%",
-                          }
-                        : {}
-                    }
-                    alt={project.title}
-                  />
-                </div>
-              </Link>
-            </div>
+            <Project project={project} index={index} key={project.id} />
           ))}
         </div>
       </div>

@@ -1,8 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
 import { css } from "@emotion/core"
 import { colors } from "../../utils/colors"
+import Project from "./project"
 
 const WeddingBoutique = ({ weddingBoutique, project }) => {
   return (
@@ -72,13 +71,14 @@ const WeddingBoutique = ({ weddingBoutique, project }) => {
               ))}
             </ul>
           </div>
-          <div>
+          <Project project={project} />
+          {/* <div>
             <Link to={`/proyectos/${project.slug}`}>
               <div className="wedding-project">
                 <Img fluid={project.image} />
               </div>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

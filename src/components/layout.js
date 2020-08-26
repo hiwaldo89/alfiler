@@ -7,12 +7,13 @@ import useMousePosition from "../utils/useMousePosition"
 import "typeface-roboto"
 import "normalize.css"
 import "../components/layout.scss"
+import { HoverProvider } from "../providers/hoverProvider"
 
 const Layout = ({ children }) => {
   const { x, y } = useMousePosition()
 
   return (
-    <>
+    <HoverProvider>
       <Global
         styles={css`
           body {
@@ -29,7 +30,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
-    </>
+    </HoverProvider>
   )
 }
 

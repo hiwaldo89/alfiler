@@ -1,8 +1,10 @@
 import React from "react"
 import { css } from "@emotion/core"
+import useHovered from "../providers/hoverProvider"
 
 const CursorFollower = ({ coordinates }) => {
   const { x, y } = coordinates
+  const { hovered } = useHovered()
 
   return (
     <div
@@ -15,12 +17,38 @@ const CursorFollower = ({ coordinates }) => {
         pointer-events: none;
         background-color: #000000;
         z-index: 9999;
+        transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+        &.hovered {
+          width: 80px;
+          height: 80px;
+          span {
+            opacity: 1;
+          }
+        }
+        span {
+          color: #fff;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          text-align: center;
+          opacity: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.8rem;
+        }
       `}
       style={{
         left: x,
         top: y,
       }}
-    ></div>
+      className={hovered ? "hovered" : ""}
+    >
+      <span>Ver más</span>
+    </div>
   )
 }
 
