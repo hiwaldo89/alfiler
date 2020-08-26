@@ -42,25 +42,6 @@ const WeddingBoutique = ({ weddingBoutique, project }) => {
             flex: 0 0 50%;
           }
         }
-        .project-info {
-          background-color: #000000;
-          color: #fff;
-          padding: 18px 24px;
-          opacity: 0;
-          transition: all 0.3s ease-in-out;
-          h3,
-          p {
-            margin: 0;
-          }
-          h3 {
-            margin-bottom: 1.5rem;
-          }
-        }
-        .wedding-project:hover {
-          .project-info {
-            opacity: 1;
-          }
-        }
       `}
     >
       <div className="container">
@@ -95,10 +76,6 @@ const WeddingBoutique = ({ weddingBoutique, project }) => {
             <Link to={`/proyectos/${project.slug}`}>
               <div className="wedding-project">
                 <Img fluid={project.image} />
-                <div className="project-info">
-                  <h3>{project.title}</h3>
-                  <p>Ver proyecto</p>
-                </div>
               </div>
             </Link>
           </div>

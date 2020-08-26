@@ -40,20 +40,6 @@ const BrandingProjects = ({ projects }) => {
           .project-img {
             position: relative;
           }
-          .project-info {
-            background-color: #000000;
-            color: #fff;
-            padding: 18px 24px;
-            opacity: 0;
-            transition: all 0.3s ease-in-out;
-            h3,
-            p {
-              margin: 0;
-            }
-            h3 {
-              margin-bottom: 1.5rem;
-            }
-          }
         }
       `}
     >
@@ -76,10 +62,6 @@ const BrandingProjects = ({ projects }) => {
                     }
                     alt={project.title}
                   />
-                </div>
-                <div className="project-info">
-                  <h3>{project.title}</h3>
-                  <p>Ver proyecto</p>
                 </div>
               </Link>
             </div>

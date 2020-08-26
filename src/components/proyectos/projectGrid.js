@@ -65,35 +65,31 @@ const ProjectGrid = ({ projects }) => {
             margin: auto;
           }
         }
+        .project-wrapper {
+          margin-bottom: 2.5rem;
+          display: block;
+        }
         .project {
           background-color: lightgray;
           display: block;
-          margin-bottom: 30px;
           position: relative;
           &:after {
             content: "";
             display: block;
             padding-top: 100%;
           }
-          &:hover {
-            .project-title {
-              opacity: 1;
+          &__info {
+            color: #000;
+            span {
+              font-weight: 300;
+              display: inline-block;
+              margin-top: 1.5rem;
             }
-          }
-          .project-title {
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: all 0.3s ease-in-out;
+            h3 {
+              margin: 0;
+              font-weight: 400;
+              margin-top: 0.5rem;
+            }
           }
         }
         .load-more {
@@ -136,19 +132,25 @@ const ProjectGrid = ({ projects }) => {
                 data-sal-duration="350"
                 data-sal-delay="300"
               >
-                <Link to={`/proyectos/${project.slug}`} className="project">
-                  <Img
-                    fluid={project.image}
-                    alt={project.title}
-                    style={{
-                      position: "absolute",
-                      width: "100%",
-                      height: "100%",
-                      top: "0",
-                      left: "0",
-                    }}
-                  />
-                  <div className="project-title">
+                <Link
+                  to={`/proyectos/${project.slug}`}
+                  className="project-wrapper"
+                >
+                  <div className="project">
+                    <Img
+                      fluid={project.image}
+                      alt={project.title}
+                      style={{
+                        position: "absolute",
+                        width: "100%",
+                        height: "100%",
+                        top: "0",
+                        left: "0",
+                      }}
+                    />
+                  </div>
+                  <div className="project__info">
+                    {project.category && <span>{project.category}</span>}
                     <h3>{project.title}</h3>
                   </div>
                 </Link>
