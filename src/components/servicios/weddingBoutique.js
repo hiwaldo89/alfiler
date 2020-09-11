@@ -71,14 +71,7 @@ const WeddingBoutique = ({ weddingBoutique, project }) => {
               ))}
             </ul>
           </div>
-          <Project project={project} />
-          {/* <div>
-            <Link to={`/proyectos/${project.slug}`}>
-              <div className="wedding-project">
-                <Img fluid={project.image} />
-              </div>
-            </Link>
-          </div> */}
+          {!!project.length && <Project project={project[0]} />}
         </div>
       </div>
     </div>

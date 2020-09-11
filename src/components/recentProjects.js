@@ -4,8 +4,7 @@ import { css } from "@emotion/core"
 import Project from "./project"
 
 const RecentProjects = ({ limit = 4 }) => {
-  const projects = useRecentProjects().slice(0, limit)
-  console.log(projects)
+  const projects = useRecentProjects().slice(0, limit) || []
   return (
     <div
       className="container"

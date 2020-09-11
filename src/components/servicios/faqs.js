@@ -36,8 +36,8 @@ const Faqs = ({ faqs }) => {
           <div key={`faq-${index}`} className="faq">
             <AccordionItem
               item={{
-                title: `${index + 1}. ${faq.question}`,
-                content: faq.answer,
+                title: `${index + 1}. ${faq.question || ""}`,
+                content: faq.answer || "",
               }}
             />
           </div>

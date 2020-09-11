@@ -71,10 +71,12 @@ const About = ({ blocks }) => {
               <div key={`about-block-${index}`}>
                 <Parallax y={offset}>
                   <div>
-                    <div className="image">
-                      <Img fluid={block.image.fluid} />
-                    </div>
-                    <p>{block.block_content.text}</p>
+                    {block.image && (
+                      <div className="image">
+                        <Img fluid={block.image.fluid} />
+                      </div>
+                    )}
+                    {block.block_content && <p>{block.block_content.text}</p>}
                   </div>
                 </Parallax>
               </div>

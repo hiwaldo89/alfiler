@@ -26,7 +26,7 @@ const Servicios = () => {
       <BrandingProjects projects={brandingProjects} />
       <WeddingBoutique
         weddingBoutique={weddingBoutique}
-        project={weddingBoutiqueProject[0]}
+        project={weddingBoutiqueProject}
       />
       <Faqs faqs={faqs} />
     </Layout>

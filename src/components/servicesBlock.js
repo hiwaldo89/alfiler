@@ -47,9 +47,9 @@ const ServicesBlock = ({ services }) => {
       <div className="services-wrapper d-flex">
         {services.map((service, index) => (
           <div key={`service-item-${index}`}>
-            <h3>{service.title.text}</h3>
+            <h3>{service.title.text || ""}</h3>
             <div
-              dangerouslySetInnerHTML={{ __html: service.content.html }}
+              dangerouslySetInnerHTML={{ __html: service.content.html || "" }}
             ></div>
           </div>
         ))}

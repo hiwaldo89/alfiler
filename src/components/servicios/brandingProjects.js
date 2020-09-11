@@ -44,9 +44,10 @@ const BrandingProjects = ({ projects }) => {
     >
       <div className="container">
         <div className="d-flex">
-          {projects.map((project, index) => (
-            <Project project={project} index={index} key={project.id} />
-          ))}
+          {projects.length &&
+            projects.map((project, index) => (
+              <Project project={project} index={index} key={project.id} />
+            ))}
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@ import React from "react"
 import { css } from "@emotion/core"
 
 const HighlightText = ({ content }) => {
-  console.log(content)
   return (
     <div
       className="container"

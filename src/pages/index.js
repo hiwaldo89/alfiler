@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Quote from "../components/homepage/quote"
 import About from "../components/homepage/about"
-//import RecentProjects from "../components/homepage/recentProjects"
 import RecentProjects from "../components/recentProjects"
 import OurServices from "../components/homepage/ourServices"
 import useHomepage from "../utils/useHomepage"
@@ -14,8 +13,8 @@ const HomePage = () => {
     <Layout>
       <SEO title="Inicio" />
       <h1 className="sr-only">Alfiler Branding Studio</h1>
-      <Quote quote={quote} />
-      <About blocks={about} />
+      {quote && <Quote quote={quote} />}
+      {about && <About blocks={about} />}
       <RecentProjects />
       <OurServices services={services} />
     </Layout>

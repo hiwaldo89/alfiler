@@ -5,22 +5,24 @@ import { colors } from "../../utils/colors"
 const QuoteText = ({ quote, onMouseEnter, onMouseLeave }) => {
   const definitionMarker = quote.spans[0]
   return (
-    <h2 data-sal="slide-up" data-sal-delay="300" data-sal-duration="350">
-      {quote.text.substring(0, definitionMarker.start)}
-      <span
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        role="definition"
-      >
-        <span>
-          {quote.text.substring(definitionMarker.start, definitionMarker.end)}
-        </span>
-        <span>
-          {quote.text.substring(definitionMarker.start, definitionMarker.end)}
-        </span>
-      </span>{" "}
-      {quote.text.substring(definitionMarker.end, quote.text.length)}
-    </h2>
+    quote.text && (
+      <h2 data-sal="slide-up" data-sal-delay="300" data-sal-duration="350">
+        {quote.text.substring(0, definitionMarker.start)}
+        <span
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          role="definition"
+        >
+          <span>
+            {quote.text.substring(definitionMarker.start, definitionMarker.end)}
+          </span>
+          <span>
+            {quote.text.substring(definitionMarker.start, definitionMarker.end)}
+          </span>
+        </span>{" "}
+        {quote.text.substring(definitionMarker.end, quote.text.length)}
+      </h2>
+    )
   )
 }
 
@@ -103,7 +105,7 @@ const Quote = ({ quote }) => {
       />
       <div
         className={`quote-definition${showDefinition ? " show" : ""}`}
-        dangerouslySetInnerHTML={definition()}
+        dangerouslySetInnerHTML={definition() || ""}
       ></div>
     </div>
   )

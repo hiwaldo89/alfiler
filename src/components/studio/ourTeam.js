@@ -11,7 +11,6 @@ const OurTeam = ({ members }) => {
   const slickSlider = useRef(null)
   const changeSlide = index => {
     slickSlider.current.slickGoTo(index, null)
-    console.log(slickSlider.current)
   }
 
   const settings = {
