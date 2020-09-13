@@ -2,7 +2,6 @@ import React from "react"
 import { css } from "@emotion/core"
 
 const Columns = ({ content = [], id }) => {
-  console.log(content)
   return (
     <div
       className="container"

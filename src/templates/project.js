@@ -38,7 +38,6 @@ const Project = ({ data: { prismicProjects: project } }) => {
         `}
       >
         {project.data.body.map((slice, index) => {
-          console.log(slice)
           switch (slice.slice_type) {
             case "two_column_image":
               return <TwoColImg key={slice.id} content={slice.primary} />

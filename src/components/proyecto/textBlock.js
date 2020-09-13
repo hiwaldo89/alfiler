@@ -41,7 +41,7 @@ const TextBlock = ({ content }) => {
           {!!content.title1 && (
             <h2
               className={`${
-                content.title1.raw[0].type === "heading1"
+                content.title1?.raw[0]?.type === "heading1"
                   ? "heading-1"
                   : "heading-2"
               }`}
@@ -49,7 +49,7 @@ const TextBlock = ({ content }) => {
               data-sal-duration="350"
               data-sal-delay="300"
             >
-              {content.title1.raw[0].text}
+              {content.title1?.raw[0]?.text}
             </h2>
           )}
           {!!content.content && (

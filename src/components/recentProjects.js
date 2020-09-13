@@ -7,7 +7,6 @@ import Project from "./project"
 const RecentProjects = ({ limit = 4, featured = false }) => {
   const featuredProjects = useFeaturedProjects() || []
   const recentProjects = useRecentProjects().slice(0, limit) || []
-  console.log(featuredProjects)
   const projects = featured ? featuredProjects : recentProjects
   return (
     <div
