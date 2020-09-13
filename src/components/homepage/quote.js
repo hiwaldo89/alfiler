@@ -35,12 +35,18 @@ const Quote = ({ quote }) => {
     <div
       css={css`
         background: ${colors.lightgray};
-        padding: 200px 0;
+        padding: 150px 0;
         text-align: center;
+        @media (min-width: 768px) {
+          padding: 200px 0;
+        }
         h2 {
           margin: 0;
           font-weight: 400;
-          font-size: 2.5rem;
+          font-size: 2rem;
+          @media (min-width: 768px) {
+            font-size: 2.5rem;
+          }
           span {
             cursor: pointer;
             font-weight: 700;
@@ -82,6 +88,10 @@ const Quote = ({ quote }) => {
           opacity: 0;
           transform: translateY(-10px);
           transition: all 0.3s ease-in-out;
+          display: none;
+          @media (min-width: 992px) {
+            display: block;
+          }
           &.show {
             opacity: 1;
             transform: translateY(0);

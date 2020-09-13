@@ -32,21 +32,37 @@ const About = ({ blocks }) => {
           & > div {
             position: relative;
             &:nth-of-type(1) {
-              width: 40%;
-              flex: 0 0 40%;
-              margin-right: auto;
+              width: 100%;
+              flex: 0 0 100%;
               .image {
-                margin-bottom: 68px;
+                margin-bottom: 38px;
+              }
+              @media (min-width: 768px) {
+                width: 40%;
+                flex: 0 0 40%;
+                margin-right: auto;
+                .image {
+                  margin-bottom: 68px;
+                }
               }
             }
             &:nth-of-type(2) {
-              width: 50%;
-              flex: 0 0 50%;
+              width: 100%;
+              flex: 0 0 100%;
               .image {
-                margin-bottom: 85px;
+                margin-bottom: 38px;
+              }
+              @media (min-width: 768px) {
+                width: 50%;
+                flex: 0 0 50%;
+                .image {
+                  margin-bottom: 85px;
+                }
               }
               p {
-                width: 70%;
+                @media (min-width: 768px) {
+                  width: 70%;
+                }
               }
             }
             p {

@@ -20,7 +20,10 @@ const HighlightText = ({ content }) => {
             max-width: 300px;
             font-weight: 300;
             text-align: left;
-            font-size: 2rem;
+            font-size: 1.5rem;
+            @media (min-width: 768px) {
+              font-size: 2rem;
+            }
             span {
               display: block;
               &:not(:last-of-type) {
@@ -33,22 +36,24 @@ const HighlightText = ({ content }) => {
     >
       <div className="d-flex">
         <div>
-          <h2>
-            {content.text.raw.map((line, index) => {
-              return (
-                line.text !== "" && (
-                  <span
-                    key={`line-${index}`}
-                    data-sal={index > 0 ? "slide-up" : ""}
-                    data-sal-duration="350"
-                    data-sal-delay="300"
-                  >
-                    {line.text}
-                  </span>
+          {!!content.text && (
+            <h2>
+              {content.text.raw.map((line, index) => {
+                return (
+                  line.text !== "" && (
+                    <span
+                      key={`line-${index}`}
+                      data-sal={index > 0 ? "slide-up" : ""}
+                      data-sal-duration="350"
+                      data-sal-delay="300"
+                    >
+                      {line.text}
+                    </span>
+                  )
                 )
-              )
-            })}
-          </h2>
+              })}
+            </h2>
+          )}
         </div>
       </div>
     </div>

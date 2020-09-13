@@ -15,7 +15,7 @@ const HomePage = () => {
       <h1 className="sr-only">Alfiler Branding Studio</h1>
       {quote && <Quote quote={quote} />}
       {about && <About blocks={about} />}
-      <RecentProjects />
+      <RecentProjects featured />
       <OurServices services={services} />
     </Layout>
   )

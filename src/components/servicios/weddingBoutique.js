@@ -11,7 +11,10 @@ const WeddingBoutique = ({ weddingBoutique, project }) => {
         padding-bottom: 2rem;
         h2 {
           font-weight: 300;
-          font-size: 2.5rem;
+          font-size: 2rem;
+          @media (min-width: 768px) {
+            font-size: 2.5rem;
+          }
         }
         .about-service {
           line-height: 2rem;
@@ -37,8 +40,12 @@ const WeddingBoutique = ({ weddingBoutique, project }) => {
           & > div {
             padding-left: 15px;
             padding-right: 15px;
-            width: 50%;
-            flex: 0 0 50%;
+            width: 100%;
+            flex: 0 0 100%;
+            @media (min-width: 768px) {
+              width: 50%;
+              flex: 0 0 50%;
+            }
           }
         }
       `}

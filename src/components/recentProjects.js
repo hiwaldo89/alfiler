@@ -1,10 +1,14 @@
 import React from "react"
 import useRecentProjects from "../utils/useRecentProjects"
+import useFeaturedProjects from "../utils/useFeaturedProjects"
 import { css } from "@emotion/core"
 import Project from "./project"
 
-const RecentProjects = ({ limit = 4 }) => {
-  const projects = useRecentProjects().slice(0, limit) || []
+const RecentProjects = ({ limit = 4, featured = false }) => {
+  const featuredProjects = useFeaturedProjects() || []
+  const recentProjects = useRecentProjects().slice(0, limit) || []
+  console.log(featuredProjects)
+  const projects = featured ? featuredProjects : recentProjects
   return (
     <div
       className="container"
@@ -22,14 +26,33 @@ const RecentProjects = ({ limit = 4 }) => {
           font-weight: 300;
         }
         .project {
-          width: 45%;
-          flex: 0 0 45%;
+          width: 100%;
+          flex: 0 0 100%;
           margin-bottom: 3.5rem;
+          @media (min-width: 768px) {
+            width: 45%;
+            flex: 0 0 45%;
+          }
           &:nth-of-type(even) {
             margin-left: auto;
           }
           &__info {
             color: #000;
+            display: flex;
+            flex-wrap: wrap;
+            & > div {
+              width: 50%;
+              flex: 0 0 50%;
+              p {
+                font-weight: 300;
+                margin-top: 0.5rem;
+                text-align: right;
+                &:first-of-type {
+                  margin-top: 1.5rem;
+                }
+                margin-bottom: 0;
+              }
+            }
             span {
               font-weight: 300;
               display: inline-block;
@@ -45,7 +68,7 @@ const RecentProjects = ({ limit = 4 }) => {
       `}
     >
       <h2 data-sal="slide-up" data-sal-duration="350" data-sal-delay="300">
-        Proyectos recientes
+        {featured ? "Featured Projects" : "Proyectos recientes"}
       </h2>
       <div className="d-flex">
         {projects.map(project => (

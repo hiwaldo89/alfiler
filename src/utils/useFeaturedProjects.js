@@ -1,9 +1,16 @@
 import { useStaticQuery, graphql } from "gatsby"
 
-const useRecentProjects = () => {
+const useFeaturedProjects = () => {
   const { allPrismicProjects } = useStaticQuery(graphql`
     {
-      allPrismicProjects(limit: 4) {
+      allPrismicProjects(
+        limit: 4
+        filter: {
+          data: {
+            category: { elemMatch: { category1: { slug: { eq: "featured" } } } }
+          }
+        }
+      ) {
         edges {
           node {
             uid
@@ -44,4 +51,4 @@ const useRecentProjects = () => {
   return allPrismicProjects.edges
 }
 
-export default useRecentProjects
+export default useFeaturedProjects

@@ -10,19 +10,26 @@ const OurManifesto = ({ manifesto }) => {
         background-color: ${colors.lightgray};
         h2 {
           font-weight: 300;
-          font-size: 2.5rem;
+          font-size: 2rem;
           margin-top: 0;
           padding-top: 4rem;
+          @media (min-width: 768px) {
+            font-size: 2.5rem;
+          }
         }
         .wrapper {
           width: 100%;
           margin-left: -15px;
           margin-right: -15px;
           .column {
-            width: 45%;
-            flex: 0 0 45%;
+            width: 100%;
+            flex: 0 0 100%;
             padding-left: 15px;
             padding-right: 15px;
+            @media (min-width: 768px) {
+              width: 45%;
+              flex: 0 0 45%;
+            }
             &:first-of-type {
               margin-right: auto;
             }

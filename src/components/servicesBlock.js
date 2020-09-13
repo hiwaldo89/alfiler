@@ -11,8 +11,12 @@ const ServicesBlock = ({ services }) => {
           flex: 0 0 80%;
           margin: auto;
           & > div {
-            width: 40%;
-            flex: 0 0 40%;
+            width: 100%;
+            flex: 0 0 100%;
+            @media (min-width: 768px) {
+              width: 40%;
+              flex: 0 0 40%;
+            }
             h3 {
               word-spacing: 100vw;
             }

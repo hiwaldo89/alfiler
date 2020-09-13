@@ -25,11 +25,24 @@ const Footer = () => {
         }
         .d-flex {
           & > div {
-            width: 25%;
-            flex: 0 0 25%;
+            width: 100%;
+            flex: 0 0 100%;
+            margin-bottom: 2rem;
+            text-align: center;
+            @media (min-width: 768px) {
+              width: 25%;
+              flex: 0 0 25%;
+              margin-bottom: 0;
+              text-align: left;
+              &:nth-of-type(2),
+              &:nth-of-type(3),
+              &:nth-of-type(4) {
+                text-align: center;
+              }
+            }
             h4 {
               margin-top: 0;
-              margin-bottom: 50px;
+              margin-bottom: 10px;
             }
             a {
               display: inline-block;
@@ -48,9 +61,9 @@ const Footer = () => {
         <div>
           <img src={Logo} alt="Alfiler Branding Studio" />
         </div>
-        <div className="text-center">
-          <div className="text-left inline-block">
-            <a href="tel:4424644699">442 464 4699</a> <br />
+        <div>
+          <div className="inline-block">
+            <h4>Síguenos</h4>
             <a href="https://www.facebook.com/AlfilerStudio" target="_blank">
               Facebook
             </a>{" "}
@@ -58,18 +71,24 @@ const Footer = () => {
             <a href="https://www.instagram.com/alfilerstudio/" target="_blank">
               Instagram
             </a>
+            <br />
+            <a href="" target="_blank">
+              Pinterest
+            </a>
           </div>
         </div>
-        <div className="text-center">
-          <div className="text-left inline-block">
-            <p>Senda Del Carruaje 102 Int. F </p>
-            <p>Milenio III.</p>
-            <p>Querétaro, Qro.</p>
+        <div>
+          <div className="inline-block">
+            <h4>Whatsapp only </h4>
+            <a href="https://wa.me/4424644699" target="_blank">
+              442 464 4699
+            </a>{" "}
+            <br />
           </div>
         </div>
-        <div className="text-center">
-          <div className="text-left inline-block">
-            <p>Horarios:</p>
+        <div>
+          <div className="inline-block">
+            <h4>Horarios:</h4>
             <p>L a J: 9:00 - 18:00</p>
             <p>V: 9:00 - 16:00</p>
           </div>

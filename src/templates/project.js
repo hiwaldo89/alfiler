@@ -8,6 +8,7 @@ import HighlightText from "../components/proyecto/highlightText"
 import TwoColText from "../components/proyecto/twoColText"
 import FullWidthImg from "../components/proyecto/fullWidthImg"
 import TextWithImg from "../components/proyecto/textWithImg"
+import Columns from "../components/proyecto/columns"
 import { colors } from "../utils/colors"
 
 const Project = ({ data: { prismicProjects: project } }) => {
@@ -32,11 +33,12 @@ const Project = ({ data: { prismicProjects: project } }) => {
             &:first-of-type {
               padding-top: 4rem;
             }
-            padding-bottom: 8rem;
+            padding-bottom: 6rem;
           }
         `}
       >
         {project.data.body.map((slice, index) => {
+          console.log(slice)
           switch (slice.slice_type) {
             case "two_column_image":
               return <TwoColImg key={slice.id} content={slice.primary} />
@@ -50,6 +52,10 @@ const Project = ({ data: { prismicProjects: project } }) => {
               return <FullWidthImg key={slice.id} content={slice.primary} />
             case "text_with_image":
               return <TextWithImg key={slice.id} content={slice.primary} />
+            case "columns":
+              return (
+                <Columns key={slice.id} content={slice.items} id={slice.id} />
+              )
             default:
               return <div key={`slice-${index}`}>No block defined</div>
           }
@@ -145,6 +151,15 @@ export const PageQuery = graphql`
                 fluid {
                   ...GatsbyPrismicImageFluid
                 }
+              }
+            }
+          }
+          ... on PrismicProjectsBodyColumns {
+            id
+            slice_type
+            items {
+              column_content {
+                html
               }
             }
           }

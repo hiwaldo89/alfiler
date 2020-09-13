@@ -12,13 +12,19 @@ const TwoColText = ({ content }) => {
           & > div {
             padding-left: 15px;
             padding-right: 15px;
+            width: 100%;
+            flex: 0 0 100%;
             &:first-of-type {
-              width: 70%;
-              flex: 0 0 70%;
+              @media (min-width: 768px) {
+                width: 70%;
+                flex: 0 0 70%;
+              }
             }
             &:last-of-type {
-              width: 30%;
-              flex: 0 0 30%;
+              @media (min-width: 768px) {
+                width: 30%;
+                flex: 0 0 30%;
+              }
             }
           }
         }
@@ -50,22 +56,30 @@ const TwoColText = ({ content }) => {
         }
       `}
     >
-      <h2 data-sal="slide-up" data-sal-duration="350" data-sal-delay="300">
-        {content.title1.text}
-      </h2>
+      {!!content.title1 && (
+        <h2 data-sal="slide-up" data-sal-duration="350" data-sal-delay="300">
+          {content.title1.text}
+        </h2>
+      )}
       <div className="d-flex">
         <div>
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: content.left_column_text.html }}
-            data-sal="slide-up"
-            data-sal-duration="350"
-            data-sal-delay="300"
-          ></div>
+          {!!content.left_column_text && (
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{
+                __html: content.left_column_text.html,
+              }}
+              data-sal="slide-up"
+              data-sal-duration="350"
+              data-sal-delay="300"
+            ></div>
+          )}
         </div>
         <div
           className="right-col"
-          dangerouslySetInnerHTML={{ __html: content.right_column_text.html }}
+          dangerouslySetInnerHTML={{
+            __html: content.right_column_text?.html || null,
+          }}
           data-sal="slide-up"
           data-sal-duration="350"
           data-sal-delay="400"

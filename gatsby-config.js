@@ -48,6 +48,7 @@ module.exports = {
           menu: require(`./src/schemas/menu.json`),
           home: require(`./src/schemas/home.json`),
           projects: require(`./src/schemas/projects.json`),
+          projects_page: require(`./src/schemas/projectsPage.json`),
           studio: require(`./src/schemas/studio.json`),
           servicios: require(`./src/schemas/servicios.json`),
           resenas: require(`./src/schemas/resenas.json`),

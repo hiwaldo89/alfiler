@@ -13,10 +13,16 @@ const BrandingStudioServices = ({ services }) => {
           margin-left: -15px;
           margin-right: -15px;
           & > div {
-            width: 33.3333333%;
-            flex: 0 0 33.3333333%;
+            width: 100%;
+            flex: 0 0 100%;
             padding-left: 15px;
             padding-right: 15px;
+            margin-bottom: 2rem;
+            @media (min-width: 768px) {
+              width: 33.3333333%;
+              flex: 0 0 33.3333333%;
+              margin-bottom: 0;
+            }
           }
           h2 {
             font-size: 1.2rem;

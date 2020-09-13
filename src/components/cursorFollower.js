@@ -18,6 +18,10 @@ const CursorFollower = ({ coordinates }) => {
         background-color: #000000;
         z-index: 9999;
         transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+        display: none;
+        @media only screen and (min-width: 992px) {
+          display: block;
+        }
         &.hovered {
           width: 80px;
           height: 80px;

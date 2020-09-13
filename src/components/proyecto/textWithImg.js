@@ -32,7 +32,7 @@ const TextWithImg = ({ content }) => {
           }
           p {
             line-height: 2;
-            margin-bottom: 3rem;
+            margin-bottom: 0.5rem;
           }
           ul {
             list-style: none;
@@ -53,11 +53,13 @@ const TextWithImg = ({ content }) => {
     >
       <div className="d-flex">
         <div>
-          <Img fluid={content.image.fluid} alt={content.image.alt} />
+          {!!content.image?.fluid && (
+            <Img fluid={content.image.fluid} alt={content.image.alt} />
+          )}
         </div>
         <div
           className="content"
-          dangerouslySetInnerHTML={{ __html: content.text.html }}
+          dangerouslySetInnerHTML={{ __html: content.text?.html || null }}
         ></div>
       </div>
     </div>

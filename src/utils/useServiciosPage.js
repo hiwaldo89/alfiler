@@ -73,7 +73,7 @@ const useServiciosPage = () => {
           }
         }
         limit: 2
-        sort: { order: DESC, fields: first_publication_date }
+        sort: { order: DESC, fields: data___fecha___text }
       ) {
         edges {
           node {

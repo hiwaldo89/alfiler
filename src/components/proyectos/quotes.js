@@ -31,9 +31,13 @@ const Quotes = ({ quotes }) => {
             padding-left: 15px;
             padding-right: 15px;
             &:first-of-type {
-              width: 30%;
-              flex: 0 0 30%;
-              text-align: center;
+              width: 100%;
+              flex: 0 0 100%;
+              @media (min-width: 768px) {
+                width: 30%;
+                flex: 0 0 30%;
+                text-align: center;
+              }
               h2 {
                 display: inline-block;
                 text-align: left;
@@ -41,8 +45,12 @@ const Quotes = ({ quotes }) => {
               }
             }
             &:last-of-type {
-              width: 70%;
-              flex: 0 0 70%;
+              width: 100%;
+              flex: 0 0 100%;
+              @media (min-width: 768px) {
+                width: 70%;
+                flex: 0 0 70%;
+              }
             }
           }
         }
@@ -53,10 +61,14 @@ const Quotes = ({ quotes }) => {
             padding-left: 15px;
             padding-right: 15px;
             &:first-of-type {
-              width: 57.15%;
-              flex: 0 0 57.15%;
+              width: 100%;
+              flex: 0 0 100%;
               text-align: left;
               line-height: 2;
+              @media (min-width: 768px) {
+                width: 57.15%;
+                flex: 0 0 57.15%;
+              }
             }
             &:last-of-type {
               width: 42.85%;
@@ -70,8 +82,10 @@ const Quotes = ({ quotes }) => {
           }
           .quote-content {
             p:first-of-type {
-              margin-bottom: 4rem;
               margin-top: 0;
+              @media (min-width: 768px) {
+                margin-bottom: 4rem;
+              }
             }
           }
           .quote-project {

@@ -25,6 +25,14 @@ const OurTeam = ({ members }) => {
         setMovedSlider(true)
       }
     },
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   }
 
   return (
@@ -34,12 +42,15 @@ const OurTeam = ({ members }) => {
         background-color: ${colors.lightgray};
         h2 {
           font-weight: 300;
-          font-size: 2.5rem;
+          font-size: 2rem;
           margin-top: 0;
           padding-top: 3rem;
+          @media (min-width: 768px) {
+            font-size: 2.5rem;
+          }
         }
         .slider-wrapper {
-          overflow: visible;
+          overflow: hidden;
           @media (min-width: 992px) {
             padding-left: calc(50vw - 465px);
           }
@@ -50,6 +61,7 @@ const OurTeam = ({ members }) => {
         .slick-list {
           overflow: visible;
           margin-left: -25px;
+          margin-right: 80px;
           @media (min-width: 992px) {
             margin-right: calc(50vw - 465px);
             ${!movedSlider && "clip-path: inset(0 -50vw 0 0);"}
@@ -59,9 +71,13 @@ const OurTeam = ({ members }) => {
           }
         }
         .slick-slide {
-          padding-left: 25px;
-          padding-right: 25px;
           opacity: 0.5;
+          padding-left: 10px;
+          padding-right: 10px;
+          @media (min-width: 768px) {
+            padding-left: 25px;
+            padding-right: 25px;
+          }
           &.slick-active {
             opacity: 1;
           }
@@ -76,7 +92,7 @@ const OurTeam = ({ members }) => {
           }
         }
         .member-info {
-          width: 40%;
+          width: 100%;
           h3 {
             width: 50%;
             margin-top: 2.5rem;
@@ -87,6 +103,27 @@ const OurTeam = ({ members }) => {
           }
           p {
             line-height: 1.8;
+          }
+          .bio-wrapper {
+            margin-left: -15px;
+            margin-right: -15px;
+          }
+          .bio-col {
+            width: 100%;
+            flex: 0 0 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+            @media (min-width: 768px) {
+              width: 45%;
+              flex: 0 0 45%;
+            }
+            &:last-of-type {
+              margin-left: auto;
+            }
+            a {
+              color: inherit;
+              text-decoration: underline;
+            }
           }
         }
         .member {
@@ -156,7 +193,17 @@ const OurTeam = ({ members }) => {
                 <div key={`member-info-${index}`}>
                   <h3>{member.jobPosition}</h3>
                   <h4>{member.name}</h4>
-                  <p>{member.bio}</p>
+                  <div className="d-flex bio-wrapper">
+                    <div className="bio-col">
+                      <div
+                        dangerouslySetInnerHTML={{ __html: member.bio }}
+                      ></div>
+                    </div>
+                    <div
+                      className="bio-col"
+                      dangerouslySetInnerHTML={{ __html: member.bio2 }}
+                    ></div>
+                  </div>
                 </div>
               )
             )

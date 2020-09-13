@@ -7,12 +7,12 @@ import SEO from "../components/seo"
 import useProyectosPage from "../utils/useProyectosPage"
 
 const Proyectos = () => {
-  const { projects, quotes } = useProyectosPage()
+  const { projects, quotes, categories } = useProyectosPage()
   return (
     <Layout>
       <SEO title="Proyectos" />
       <h1 className="sr-only">Proyectos</h1>
-      <ProjectGrid projects={projects} />
+      <ProjectGrid projects={projects} categories={categories} />
       <Quotes quotes={quotes} />
       <OurServices />
     </Layout>

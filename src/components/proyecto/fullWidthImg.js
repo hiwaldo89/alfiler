@@ -19,17 +19,19 @@ const FullWidthImg = ({ content }) => {
       `}
     >
       <div data-sal="fade" data-sal-duration="350" data-sal-delay="300">
-        <Img
-          fluid={content.image.fluid}
-          alt={content.image.alt}
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            top: "0",
-            left: "0",
-          }}
-        />
+        {!!content.image?.fluid && (
+          <Img
+            fluid={content.image.fluid}
+            alt={content.image.alt}
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              top: "0",
+              left: "0",
+            }}
+          />
+        )}
       </div>
     </div>
   )

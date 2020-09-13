@@ -18,7 +18,10 @@ const useStudioPage = () => {
           }
           team_members {
             bio {
-              text
+              html
+            }
+            bio_2 {
+              html
             }
             job_position {
               text
@@ -57,7 +60,8 @@ const useStudioPage = () => {
     teamMembers: prismicStudio.data.team_members.map(member => ({
       name: member.name.text,
       jobPosition: member.job_position.text,
-      bio: member.bio.text,
+      bio: member.bio?.html || null,
+      bio2: member.bio_2?.html || null,
       image: member.photo.fluid,
       hoverImage: member.hover_photo.fluid,
     })),

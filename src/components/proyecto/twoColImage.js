@@ -11,9 +11,17 @@ const TwoColImg = ({ content }) => {
         .d-flex {
           margin-left: -15px;
           margin-right: -15px;
+          padding-bottom: 3rem;
           & > div {
-            width: 45%;
-            flex: 0 0 45%;
+            width: 100%;
+            flex: 0 0 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+            @media (min-width: 768px) {
+              width: 45%;
+              flex: 0 0 45%;
+              padding: 0;
+            }
             &:last-of-type {
               margin-left: auto;
             }
@@ -24,20 +32,24 @@ const TwoColImg = ({ content }) => {
       <ParallaxProvider>
         <div className="d-flex">
           <div>
-            <Parallax y={[0, -20]}>
-              <Img
-                fluid={content.left_image.fluid}
-                alt={content.left_image.alt || ""}
-              />
-            </Parallax>
+            {!!content.left_image?.fluid && (
+              <Parallax y={[0, -20]}>
+                <Img
+                  fluid={content.left_image.fluid}
+                  alt={content.left_image?.alt || ""}
+                />
+              </Parallax>
+            )}
           </div>
           <div>
-            <Parallax y={[0, 50]}>
-              <Img
-                fluid={content.right_image.fluid}
-                alt={content.right_image.alt || ""}
-              />
-            </Parallax>
+            {!!content.right_image?.fluid && (
+              <Parallax y={[0, 20]}>
+                <Img
+                  fluid={content.right_image.fluid}
+                  alt={content.right_image?.alt || ""}
+                />
+              </Parallax>
+            )}
           </div>
         </div>
       </ParallaxProvider>

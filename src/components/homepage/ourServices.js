@@ -9,9 +9,12 @@ const OurServices = ({ services }) => {
       css={css`
         padding-bottom: 52px;
         h2 {
-          font-size: 50px;
+          font-size: 2rem;
           line-height: 1.2em;
           margin-bottom: 80px;
+          @media (min-width: 768px) {
+            font-size: 50px;
+          }
         }
       `}
     >

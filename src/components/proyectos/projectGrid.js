@@ -1,11 +1,10 @@
 import React, { useState, useRef } from "react"
 import { css } from "@emotion/core"
 import { colors } from "../../utils/colors"
-import useCategories from "../../utils/useCategories"
 import Project from "./project"
 import Fade from "react-reveal"
 
-const ProjectGrid = ({ projects }) => {
+const ProjectGrid = ({ projects, categories }) => {
   const items = 9
 
   const [allProjects, setAllProjects] = useState([...projects])
@@ -18,7 +17,6 @@ const ProjectGrid = ({ projects }) => {
 
   // Categories
   let filterBy = useRef("")
-  const categories = useCategories()
 
   const filterProjects = filter => {
     if (filter !== filterBy.current) {
@@ -43,10 +41,17 @@ const ProjectGrid = ({ projects }) => {
           text-align: center;
           padding-top: 100px;
           margin-bottom: 80px;
+          display: flex;
+          flex-direction: column;
+          @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: center;
+          }
           button {
             margin: 0 30px;
             background: transparent;
             border: none;
+            margin-bottom: 10px;
             &.active {
               font-weight: 700;
             }
@@ -58,8 +63,12 @@ const ProjectGrid = ({ projects }) => {
           & > div {
             padding-left: 15px;
             padding-right: 15px;
-            width: 33.3333333%;
-            flex: 0 0 33.3333333%;
+            width: 100%;
+            flex: 0 0 100%;
+            @media (min-width: 768px) {
+              width: 33.3333333%;
+              flex: 0 0 33.3333333%;
+            }
           }
           h3 {
             margin: auto;
@@ -73,6 +82,10 @@ const ProjectGrid = ({ projects }) => {
           background-color: lightgray;
           display: block;
           position: relative;
+          margin-bottom: 2.5rem;
+          @media (min-width: 768px) {
+            margin-bottom: 0;
+          }
           &:after {
             content: "";
             display: block;

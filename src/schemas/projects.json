@@ -13,6 +13,20 @@
         "label": "Slug"
       }
     },
+    "fecha": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Fecha"
+      }
+    },
+    "lugar": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Lugar"
+      }
+    },
     "cover_image": {
       "type": "Image",
       "config": {
@@ -47,7 +61,8 @@
           "hightlight_text": [],
           "two_column_text": [],
           "full_width_image": [],
-          "text_with_image": []
+          "text_with_image": [],
+          "columns": []
         },
         "choices": {
           "two_column_image": {
@@ -190,6 +205,23 @@
               }
             },
             "repeat": {}
+          },
+          "columns": {
+            "type": "Slice",
+            "fieldset": "Columns",
+            "description": "Equal width columns",
+            "icon": "view_week",
+            "display": "grid",
+            "non-repeat": {},
+            "repeat": {
+              "column_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Column content"
+                }
+              }
+            }
           }
         }
       }

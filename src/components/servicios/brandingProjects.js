@@ -22,8 +22,12 @@ const BrandingProjects = ({ projects }) => {
             }
           }
           &:nth-of-type(1) {
-            width: 65%;
-            flex: 0 0 65%;
+            width: 100%;
+            flex: 0 0 100%;
+            @media (min-width: 768px) {
+              width: 65%;
+              flex: 0 0 65%;
+            }
             .project-img {
               &:after {
                 content: "";
@@ -33,8 +37,12 @@ const BrandingProjects = ({ projects }) => {
             }
           }
           &:nth-of-type(2) {
-            width: 35%;
-            flex: 0 0 35%;
+            width: 100%;
+            flex: 0 0 100%;
+            @media (min-width: 768px) {
+              width: 35%;
+              flex: 0 0 35%;
+            }
           }
           .project-img {
             position: relative;

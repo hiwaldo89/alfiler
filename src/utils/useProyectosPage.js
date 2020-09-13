@@ -1,9 +1,13 @@
 import { useStaticQuery, graphql } from "gatsby"
 
 const useProyectosPage = () => {
-  const { allPrismicProjects, allPrismicResenas } = useStaticQuery(graphql`
+  const {
+    allPrismicProjects,
+    allPrismicResenas,
+    prismicProjectsPage,
+  } = useStaticQuery(graphql`
     {
-      allPrismicProjects {
+      allPrismicProjects(sort: { fields: data___fecha___text, order: DESC }) {
         nodes {
           data {
             title {
@@ -55,6 +59,18 @@ const useProyectosPage = () => {
           }
         }
       }
+      prismicProjectsPage {
+        data {
+          category_menu {
+            title {
+              text
+            }
+            category {
+              slug
+            }
+          }
+        }
+      }
     }
   `)
   return {
@@ -75,6 +91,10 @@ const useProyectosPage = () => {
         slug: quote.data.proyecto.uid,
       },
       content: quote.data.resena.text,
+    })),
+    categories: prismicProjectsPage.data.category_menu.map(category => ({
+      title: category.title.text,
+      slug: category.category.slug,
     })),
   }
 }

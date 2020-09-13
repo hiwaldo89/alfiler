@@ -3,16 +3,17 @@ import { css } from "@emotion/core"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { colors } from "../utils/colors"
-//import Logo from "../images/logo.svg"
 import useMenu from "../utils/useMenu"
 import Headroom from "react-headroom"
 import Logo from "../images/logo.inline.svg"
+import Hamburger from "./hamburger"
 
 const Header = () => {
   const { prismicMenu } = useMenu()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showMegamenu, setShowMegamenu] = useState(false)
   const [timer, setTimer] = useState(null)
+  const [menuOpened, setMenuOpened] = useState(false)
 
   return (
     <Headroom
@@ -51,13 +52,52 @@ const Header = () => {
             }
             nav {
               margin-left: auto;
+              position: fixed;
+              width: 100%;
+              height: 100vh;
+              top: 0;
+              left: 0;
+              z-index: 1200;
+              background-color: #fff;
+              display: flex;
+              justify-content: center;
+              transform: translateX(-100%);
+              transition: all 0.3s ease-in-out;
+              &.is-opened {
+                transform: translateX(0);
+              }
+              @media (min-width: 768px) {
+                position: relative;
+                width: auto;
+                height: auto;
+                transform: translateX(0);
+                background-color: transparent;
+                .mobile-wa {
+                  display: none;
+                }
+              }
             }
             ul {
               list-style: none;
               margin: 0;
               padding: 0;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              @media (min-width: 768px) {
+                flex-direction: row;
+              }
               li {
-                margin-left: 2.5rem;
+                margin-bottom: 2rem;
+                &:first-of-type,
+                &:last-of-type {
+                  margin-top: auto;
+                }
+                @media (min-width: 768px) {
+                  margin-left: 2.5rem;
+                  margin-bottom: 0;
+                }
                 a {
                   display: block;
                   color: #000000;
@@ -115,6 +155,10 @@ const Header = () => {
             transition: all 0.3s ease-in-out;
             pointer-events: none;
             box-shadow: 0 20px 20px -20px rgba(0, 0, 0, 0.1);
+            display: none;
+            @media (min-width: 992px) {
+              display: block;
+            }
             &.show {
               opacity: 1;
               transform: translateY(100%);
@@ -126,6 +170,9 @@ const Header = () => {
               display: none;
               @media (min-width: 768px) {
                 max-width: 85%;
+              }
+              @media (min-width: 1200px) {
+                max-width: 100%;
               }
               &.visible {
                 display: flex;
@@ -162,8 +209,9 @@ const Header = () => {
               {/* <img src={Logo} alt="Alfiler Branding Studio" /> */}
               <Logo className="logo" />
             </Link>
-            <nav>
-              <ul className="d-flex">
+            <Hamburger menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
+            <nav className={menuOpened ? "is-opened" : ""}>
+              <ul>
                 {prismicMenu.data.menu_item.map((item, index) => (
                   <li
                     key={`menu-item-${prismicMenu.id}-${index}`}
@@ -191,6 +239,12 @@ const Header = () => {
                     )}
                   </li>
                 ))}
+                <li className="mobile-wa">
+                  <a href="https://wa.me/4424644699" target="_blank">
+                    Whatsap only: <br />
+                    442 464 46 99
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
@@ -221,7 +275,9 @@ const Header = () => {
                   <h3>{item.titulo.text}</h3>
                   {item.content.text}
                   <div>
-                    <a href="tel:4424644699">WA: 442 464 46 99</a>
+                    <a href="https://wa.me/4424644699" target="_blank">
+                      Whatsap only: 442 464 46 99
+                    </a>
                   </div>
                 </div>
                 <div>

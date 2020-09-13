@@ -11,13 +11,18 @@ const BrandingStudio = ({ brandingStudio }) => {
         background-color: ${colors.lightgray};
         h2 {
           font-weight: 300;
-          font-size: 2.5rem;
+          font-size: 2rem;
           margin-top: 0;
+          @media (min-width: 768px) {
+            font-size: 2.5rem;
+          }
         }
         .content {
-          width: 60%;
           p {
             line-height: 2.2;
+          }
+          @media (min-width: 768px) {
+            width: 60%;
           }
         }
       `}

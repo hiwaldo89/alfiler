@@ -23,19 +23,26 @@ const OurDayToDay = ({ gallery }) => {
           z-index: -1;
         }
         h2 {
-          font-size: 2.5rem;
+          font-size: 2rem;
           font-weight: 300;
           margin-top: 0;
           padding-top: 3rem;
+          @media (min-width: 768px) {
+            font-size: 2.5rem;
+          }
         }
         .gallery-wrapper {
           margin-left: -15px;
           margin-right: -15px;
           & > div {
-            width: 50%;
-            flex: 0 0 50%;
+            width: 100%;
+            flex: 0 0 100%;
             padding-left: 15px;
             padding-right: 15px;
+            @media (min-width: 768px) {
+              width: 50%;
+              flex: 0 0 50%;
+            }
             .item {
               margin-bottom: 30px;
             }
