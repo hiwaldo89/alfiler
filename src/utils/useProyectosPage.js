@@ -87,7 +87,7 @@ const useProyectosPage = () => {
       id: quote.id,
       name: quote.data.nombre.text,
       project: {
-        title: quote.data.proyecto.document.data.title.text,
+        title: quote.data?.proyecto?.document?.data?.title?.text || "",
         slug: quote.data.proyecto.uid,
       },
       content: quote.data.resena.text,
