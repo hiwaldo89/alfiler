@@ -63,6 +63,10 @@ const Header = () => {
               justify-content: center;
               transform: translateX(-100%);
               transition: all 0.3s ease-in-out;
+              font-size: 1.2rem;
+              .mobile-wa {
+                margin-bottom: 4rem;
+              }
               &.is-opened {
                 transform: translateX(0);
               }
@@ -72,6 +76,7 @@ const Header = () => {
                 height: auto;
                 transform: translateX(0);
                 background-color: transparent;
+                font-size: 1rem;
                 .mobile-wa {
                   display: none;
                 }
@@ -206,7 +211,6 @@ const Header = () => {
         <div className="menu">
           <div className="container d-flex items-center">
             <Link to="/">
-              {/* <img src={Logo} alt="Alfiler Branding Studio" /> */}
               <Logo className="logo" />
             </Link>
             <Hamburger menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
