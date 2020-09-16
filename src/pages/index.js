@@ -24,6 +24,7 @@ const HomePage = () => {
         }
       `}
     >
+      <SEO title="Coming Soon" />
       <ComingSoon className="art" />
     </div>
   )
