@@ -19,6 +19,7 @@ const Project = ({ data: { prismicProjects: project } }) => {
       <SEO
         title={project.data.title.text}
         description={project.data?.meta_description?.title || ""}
+        meta={{ property: "og:image", content: project.data?.cover_image?.url }}
       />
       <h1 className="sr-only">{project.data.title.text}</h1>
       <div
@@ -86,6 +87,9 @@ export const PageQuery = graphql`
       data {
         title {
           text
+        }
+        cover_image {
+          url
         }
         body {
           ... on PrismicProjectsBodyTwoColumnImage {
