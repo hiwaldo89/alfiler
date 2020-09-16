@@ -18,7 +18,10 @@ const WeddingBoutique = ({ weddingBoutique, project }) => {
         }
         .about-service {
           line-height: 2rem;
-          margin-bottom: 5rem;
+          margin-bottom: 2rem;
+          @media (min-width: 768px) {
+            margin-bottom: 5rem;
+          }
         }
         ul {
           padding: 0;
@@ -42,9 +45,11 @@ const WeddingBoutique = ({ weddingBoutique, project }) => {
             padding-right: 15px;
             width: 100%;
             flex: 0 0 100%;
+            margin-bottom: 2rem;
             @media (min-width: 768px) {
               width: 50%;
               flex: 0 0 50%;
+              margin-bottom: 0;
             }
           }
         }

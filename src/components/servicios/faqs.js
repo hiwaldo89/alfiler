@@ -8,7 +8,10 @@ const Faqs = ({ faqs }) => {
       className="container d-flex"
       css={css`
         margin-bottom: 120px;
-        margin-top: 4rem;
+        margin-top: 2rem;
+        @media (min-width: 768px) {
+          margin-top: 4rem;
+        }
         h2 {
           font-size: 2.5rem;
           line-height: 1.3;

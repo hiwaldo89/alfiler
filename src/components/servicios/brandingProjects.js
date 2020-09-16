@@ -24,9 +24,11 @@ const BrandingProjects = ({ projects }) => {
           &:nth-of-type(1) {
             width: 100%;
             flex: 0 0 100%;
+            margin-bottom: 2rem;
             @media (min-width: 768px) {
               width: 65%;
               flex: 0 0 65%;
+              margin-bottom: 0;
             }
             .project-img {
               &:after {

@@ -29,6 +29,9 @@ const About = ({ blocks }) => {
           @media (min-width: 1200px) {
             width: calc(100vw - (50vw - 540px));
           }
+          @media (min-width: 1500px) {
+            width: 90%;
+          }
           & > div {
             position: relative;
             &:nth-of-type(1) {
