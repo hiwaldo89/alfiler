@@ -35,6 +35,13 @@
         "label": "Cover Image"
       }
     },
+    "meta_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Meta description"
+      }
+    },
     "category": {
       "type": "Group",
       "config": {

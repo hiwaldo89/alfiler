@@ -19,7 +19,10 @@ const Servicios = () => {
   } = useServiciosPage()
   return (
     <Layout>
-      <SEO title="Servicios" />
+      <SEO
+        title="Servicios"
+        description="Creamos la identidad de cada marca mediante una metodología y diseño estratégico que nos permite comunicar la esencia y atributos de valor de cada una de ellas."
+      />
       <h1 className="sr-only">Servicios</h1>
       <BrandingStudio brandingStudio={brandingStudio} />
       <BrandingStudioServices services={brandingStudioServicios} />

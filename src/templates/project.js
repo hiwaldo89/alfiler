@@ -1,4 +1,5 @@
 import React from "react"
+import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 import Layout from "../components/layout"
@@ -15,6 +16,10 @@ import { colors } from "../utils/colors"
 const Project = ({ data: { prismicProjects: project } }) => {
   return (
     <Layout>
+      <SEO
+        title={project.data.title.text}
+        description={project.data?.meta_description?.title || ""}
+      />
       <h1 className="sr-only">{project.data.title.text}</h1>
       <div
         css={css`

@@ -5,8 +5,8 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Alfiler Branding Studio`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Alfiler es un estudio de diseño estratégico conformado por un equipo multidisciplinario. Creamos la identidad de cada marca a través de una metodología de branding.`,
+    author: `@bloomstudiomx`,
   },
   plugins: [
     `gatsby-plugin-sass`,

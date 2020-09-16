@@ -10,7 +10,10 @@ const Proyectos = () => {
   const { projects, quotes, categories } = useProyectosPage()
   return (
     <Layout>
-      <SEO title="Proyectos" />
+      <SEO
+        title="Proyectos"
+        description="Conoce nuestra manera de moldear ideas en marcas únicas e irrepetibles a través de procesos estratégicos y creativos."
+      />
       <h1 className="sr-only">Proyectos</h1>
       <ProjectGrid projects={projects} categories={categories} />
       <Quotes quotes={quotes} />
