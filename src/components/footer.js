@@ -1,6 +1,6 @@
 import React from "react"
 import { css } from "@emotion/core"
-import Logo from "../images/alfiler-footer-logo.svg"
+import Logo from "../images/alfiler-footer-logo.inline.svg"
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         background-color: #f0f0f0;
         padding-top: 72px;
         padding-bottom: 70px;
-        img {
+        .logo {
           width: 35%;
           min-width: 120px;
           height: auto;
@@ -59,7 +59,7 @@ const Footer = () => {
     >
       <div className="container d-flex">
         <div>
-          <img src={Logo} alt="Alfiler Branding Studio" />
+          <Logo className="logo" />
         </div>
         <div>
           <div className="inline-block">
@@ -70,10 +70,6 @@ const Footer = () => {
             <br />
             <a href="https://www.instagram.com/alfilerstudio/" target="_blank">
               Instagram
-            </a>
-            <br />
-            <a href="" target="_blank">
-              Pinterest
             </a>
           </div>
         </div>

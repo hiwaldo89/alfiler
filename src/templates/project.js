@@ -9,6 +9,7 @@ import TwoColText from "../components/proyecto/twoColText"
 import FullWidthImg from "../components/proyecto/fullWidthImg"
 import TextWithImg from "../components/proyecto/textWithImg"
 import Columns from "../components/proyecto/columns"
+import AccordionColumns from "../components/proyecto/accordionColumns"
 import { colors } from "../utils/colors"
 
 const Project = ({ data: { prismicProjects: project } }) => {
@@ -54,6 +55,14 @@ const Project = ({ data: { prismicProjects: project } }) => {
             case "columns":
               return (
                 <Columns key={slice.id} content={slice.items} id={slice.id} />
+              )
+            case "accordion_columns":
+              return (
+                <AccordionColumns
+                  key={slice.id}
+                  content={slice.items}
+                  id={slice.id}
+                />
               )
             default:
               return <div key={`slice-${index}`}>No block defined</div>
@@ -109,6 +118,11 @@ export const PageQuery = graphql`
               text {
                 raw
               }
+              alignment
+              sub_heading {
+                html
+              }
+              subheading_alignment
             }
           }
           ... on PrismicProjectsBodyTwoColumnText {
@@ -158,6 +172,18 @@ export const PageQuery = graphql`
             slice_type
             items {
               column_content {
+                html
+              }
+            }
+          }
+          ... on PrismicProjectsBodyAccordionColumns {
+            id
+            slice_type
+            items {
+              title1 {
+                text
+              }
+              content {
                 html
               }
             }

@@ -44,7 +44,7 @@ const AccordionItem = ({ item, opened = false }) => {
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.2s ease-out;
-          p {
+          .content {
             padding-top: 2rem;
             color: #8f8f8f;
             line-height: 2;
@@ -57,7 +57,10 @@ const AccordionItem = ({ item, opened = false }) => {
         {item.title}
       </button>
       <div className="panel" ref={panel}>
-        <p>{item.content}</p>
+        <div
+          dangerouslySetInnerHTML={{ __html: item.content }}
+          className="content"
+        ></div>
       </div>
     </div>
   )

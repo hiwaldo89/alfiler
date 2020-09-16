@@ -1,6 +1,6 @@
 import React from "react"
 import { css } from "@emotion/core"
-import AccordionItem from "./accordionItem"
+import AccordionItem from "../accordionItem"
 
 const Faqs = ({ faqs }) => {
   return (

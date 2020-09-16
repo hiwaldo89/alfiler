@@ -9,11 +9,19 @@ const HighlightText = ({ content }) => {
         .d-flex {
           margin-left: -15px;
           margin-right: -15px;
+          &.align-right {
+            justify-content: flex-end;
+          }
+          &.align-center {
+            justify-content: center;
+          }
+          &.align-left {
+            justify-content: flex-start;
+          }
           & > div {
-            width: 70%;
-            flex: 0 0 70%;
             text-align: right;
-            margin: auto;
+            padding-left: 15px;
+            padding-right: 15px;
           }
           h2 {
             display: inline-block;
@@ -32,9 +40,20 @@ const HighlightText = ({ content }) => {
             }
           }
         }
+        .subheading {
+          &-left {
+            text-align: left;
+          }
+          &-center {
+            text-align: center;
+          }
+          &-right {
+            text-align: right;
+          }
+        }
       `}
     >
-      <div className="d-flex">
+      <div className={`d-flex align-${content.alignment || "right"}`}>
         <div>
           {!!content.text && (
             <h2>
@@ -56,6 +75,12 @@ const HighlightText = ({ content }) => {
           )}
         </div>
       </div>
+      {!!content.sub_heading && (
+        <div
+          className={`subheading-${content.subheading_alignment || "left"}`}
+          dangerouslySetInnerHTML={{ __html: content.sub_heading?.html || "" }}
+        ></div>
+      )}
     </div>
   )
 }

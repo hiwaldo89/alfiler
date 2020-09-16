@@ -1,7 +1,7 @@
 import React from "react"
 import { css } from "@emotion/core"
 import { colors } from "../../utils/colors"
-import AccordionItem from "./accordionItem"
+import AccordionItem from "../accordionItem"
 
 const BrandingStudioServices = ({ services }) => {
   return (

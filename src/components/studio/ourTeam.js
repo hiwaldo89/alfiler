@@ -4,6 +4,7 @@ import Slider from "react-slick"
 import { css } from "@emotion/core"
 import { colors } from "../../utils/colors"
 import "slick-carousel/slick/slick.css"
+import Arrow from "../../images/arrow.inline.svg"
 
 const OurTeam = ({ members }) => {
   const [activeMember, setActiveMember] = useState(0)
@@ -12,12 +13,14 @@ const OurTeam = ({ members }) => {
   const changeSlide = index => {
     slickSlider.current.slickGoTo(index, null)
   }
+  const nextSlide = () => {
+    slickSlider.current.slickNext()
+  }
 
   const settings = {
     infinite: true,
     slidesToShow: 3,
     arrows: false,
-    swipe: false,
     slidesToScroll: 1,
     beforeChange: (oldIndex, newIndex) => {
       setActiveMember(newIndex)
@@ -71,14 +74,14 @@ const OurTeam = ({ members }) => {
           }
         }
         .slick-slide {
-          opacity: 0.5;
+          opacity: 0.3;
           padding-left: 10px;
           padding-right: 10px;
           @media (min-width: 768px) {
             padding-left: 25px;
             padding-right: 25px;
           }
-          &.slick-active {
+          &.slick-current {
             opacity: 1;
           }
         }
@@ -139,12 +142,27 @@ const OurTeam = ({ members }) => {
             }
           }
         }
+        .slider-button {
+          background-color: transparent;
+          border: none;
+          margin-left: auto;
+        }
+        .arrow {
+          width: 50px;
+          height: auto;
+        }
+        .section-title {
+          align-items: center;
+        }
       `}
     >
-      <div className="container">
+      <div className="container d-flex section-title">
         <h2 data-sal="slide-up" data-sal-duration="350">
           Our team
         </h2>
+        <button className="slider-button" onClick={nextSlide}>
+          <Arrow className="arrow" />
+        </button>
       </div>
       <div className="slider-wrapper">
         <Slider {...settings} ref={slickSlider}>

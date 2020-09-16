@@ -62,7 +62,8 @@
           "two_column_text": [],
           "full_width_image": [],
           "text_with_image": [],
-          "columns": []
+          "columns": [],
+          "accordion_columns": []
         },
         "choices": {
           "two_column_image": {
@@ -127,6 +128,29 @@
                 "config": {
                   "multi": "heading1",
                   "label": "Text"
+                }
+              },
+              "alignment": {
+                "type": "Select",
+                "config": {
+                  "options": ["right", "center", "left"],
+                  "default_value": "right",
+                  "label": "Alignment"
+                }
+              },
+              "sub_heading": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Sub heading"
+                }
+              },
+              "subheading_alignment": {
+                "type": "Select",
+                "config": {
+                  "options": ["right", "center", "left"],
+                  "default_value": "right",
+                  "label": "Subheading Alignment"
                 }
               }
             },
@@ -219,6 +243,30 @@
                 "config": {
                   "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
                   "label": "Column content"
+                }
+              }
+            }
+          },
+          "accordion_columns": {
+            "type": "Slice",
+            "fieldset": "Accordion Columns",
+            "description": "Equal width columns of accordion items",
+            "icon": "view_day",
+            "display": "grid",
+            "non-repeat": {},
+            "repeat": {
+              "title1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Content"
                 }
               }
             }
