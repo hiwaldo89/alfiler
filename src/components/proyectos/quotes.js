@@ -10,6 +10,7 @@ const Quotes = ({ quotes }) => {
   const settings = {
     arrows: false,
     fade: true,
+    adaptiveHeight: true,
   }
 
   const goPrev = () => {
@@ -39,9 +40,12 @@ const Quotes = ({ quotes }) => {
                 text-align: center;
               }
               h2 {
-                display: inline-block;
-                text-align: left;
+                text-align: center;
                 font-size: 2.5rem;
+                @media (min-width: 768px) {
+                  text-align: left;
+                  display: inline-block;
+                }
               }
             }
             &:last-of-type {
@@ -63,20 +67,26 @@ const Quotes = ({ quotes }) => {
             &:first-of-type {
               width: 100%;
               flex: 0 0 100%;
-              text-align: left;
+              text-align: center;
               line-height: 2;
               @media (min-width: 768px) {
                 width: 57.15%;
                 flex: 0 0 57.15%;
+                text-align: left;
               }
             }
             &:last-of-type {
-              width: 42.85%;
-              flex: 0 0 42.85%;
               text-align: center;
+              @media (min-width: 768px) {
+                width: 42.85%;
+                flex: 0 0 42.85%;
+              }
               & > div {
-                display: inline-block;
-                text-align: left;
+                text-align: center;
+                @media (min-width: 768px) {
+                  text-align: left;
+                  display: inline-block;
+                }
               }
             }
           }

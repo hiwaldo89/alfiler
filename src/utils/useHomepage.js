@@ -16,7 +16,7 @@ const useHomepage = () => {
           }
           about {
             block_content {
-              text
+              html
             }
             image {
               fluid {

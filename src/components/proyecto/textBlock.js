@@ -33,6 +33,10 @@ const TextBlock = ({ content }) => {
         }
         p {
           line-height: 2;
+          text-align: center;
+          @media (min-width: 768px) {
+            text-align: left;
+          }
         }
       `}
     >

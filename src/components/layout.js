@@ -8,6 +8,7 @@ import "typeface-roboto"
 import "normalize.css"
 import "../components/layout.scss"
 import { HoverProvider } from "../providers/hoverProvider"
+import { colors } from "../utils/colors"
 
 const Layout = ({ children }) => {
   const { x, y } = useMousePosition()
@@ -18,6 +19,7 @@ const Layout = ({ children }) => {
         styles={css`
           body {
             font-family: "Roboto", sans-serif;
+            background-color: ${colors.lightgray};
             p {
               font-weight: 300;
             }

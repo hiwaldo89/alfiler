@@ -3,6 +3,7 @@ import { css } from "@emotion/core"
 import { colors } from "../../utils/colors"
 import Project from "./project"
 import Fade from "react-reveal"
+import { Link } from "gatsby"
 
 const ProjectGrid = ({ projects, categories }) => {
   const items = 9
@@ -105,13 +106,6 @@ const ProjectGrid = ({ projects, categories }) => {
             }
           }
         }
-        .load-more {
-          text-align: center;
-          button {
-            background: transparent;
-            border: none;
-          }
-        }
       `}
     >
       <div className="container">
@@ -148,9 +142,26 @@ const ProjectGrid = ({ projects, categories }) => {
           )}
         </div>
         {allProjects.length > itemsPerPage && (
-          <div className="load-more">
-            <button type="button" onClick={loadMore}>
-              Más proyectos
+          <div className="text-center">
+            <button
+              type="button"
+              onClick={loadMore}
+              css={css`
+                border: solid 1px #000;
+                padding: 0.8rem 1.8rem;
+                display: inline-block;
+                margin-bottom: 6rem;
+                color: inherit;
+                transition: all 0.3s ease-in-out;
+                background-color: transparent;
+                margin-top: 6rem;
+                &:hover {
+                  color: #fff;
+                  background-color: #000;
+                }
+              `}
+            >
+              Ver más proyectos
             </button>
           </div>
         )}

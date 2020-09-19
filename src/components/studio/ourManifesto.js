@@ -51,7 +51,7 @@ const OurManifesto = ({ manifesto }) => {
             data-sal-delay="300"
             data-sal-duration="350"
           >
-            <p>{manifesto.column_1}</p>
+            <div dangerouslySetInnerHTML={{ __html: manifesto.column_1 }}></div>
           </div>
           <div
             className="column"
@@ -59,7 +59,7 @@ const OurManifesto = ({ manifesto }) => {
             data-sal-delay="350"
             data-sal-duration="350"
           >
-            <p>{manifesto.column_2}</p>
+            <div dangerouslySetInnerHTML={{ __html: manifesto.column_2 }}></div>
           </div>
         </div>
       </div>

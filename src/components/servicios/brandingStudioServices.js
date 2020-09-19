@@ -26,6 +26,10 @@ const BrandingStudioServices = ({ services }) => {
           }
           h2 {
             font-size: 1.2rem;
+            text-align: center;
+            @media (min-width: 768px) {
+              text-align: left;
+            }
           }
         }
         .accordion-item {

@@ -9,20 +9,24 @@ const AccordionColumns = ({ content = [], id }) => {
       css={css`
         display: flex;
         .d-flex {
-          margin-left: -15px;
-          margin-right: -15px;
           width: 100%;
           & > div {
             padding-left: 15px;
             padding-right: 15px;
+            width: 100%;
             flex: 0 0 100%;
+            margin-bottom: 2rem;
             text-align: center;
             @media (min-width: 768px) {
               flex: 1;
+              margin-bottom: 0;
             }
             & > div {
-              display: inline-block;
-              text-align: left;
+              text-align: center;
+              @media (min-width: 768px) {
+                display: inline-block;
+                text-align: left;
+              }
             }
           }
         }

@@ -95,7 +95,13 @@ const About = ({ blocks }) => {
                         <Img fluid={block.image.fluid} />
                       </div>
                     )}
-                    {block.block_content && <p>{block.block_content.text}</p>}
+                    {block.block_content && (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: block?.block_content?.html || "",
+                        }}
+                      ></div>
+                    )}
                   </div>
                 </Parallax>
               </div>

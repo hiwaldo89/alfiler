@@ -11,19 +11,36 @@ const TextWithImg = ({ content }) => {
           margin-left: -15px;
           margin-right: -15px;
           & > div {
+            width: 100%;
+            flex: 0 0 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+            @media (min-width: 768px) {
+              padding-left: 0;
+              padding-right: 0;
+            }
             &:first-of-type {
-              width: 45%;
-              flex: 0 0 45%;
+              @media (min-width: 768px) {
+                width: 45%;
+                flex: 0 0 45%;
+              }
             }
             &:last-of-type {
-              width: 45%;
-              flex: 0 0 45%;
-              margin-left: auto;
-              margin-top: auto;
+              width: 100%;
+              flex: 0 0 100%;
+              @media (min-width: 768px) {
+                width: 45%;
+                flex: 0 0 45%;
+                margin-left: auto;
+                margin-top: auto;
+              }
             }
           }
         }
         .content {
+          @media (max-width: 767px) {
+            text-align: center;
+          }
           h2 {
             font-weight: 300;
             font-size: 1.2rem;

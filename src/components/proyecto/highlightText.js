@@ -10,27 +10,37 @@ const HighlightText = ({ content }) => {
           margin-left: -15px;
           margin-right: -15px;
           &.align-right {
-            justify-content: flex-end;
+            justify-content: center;
+            @media (min-width: 768px) {
+              justify-content: flex-end;
+            }
           }
           &.align-center {
             justify-content: center;
           }
           &.align-left {
-            justify-content: flex-start;
+            justify-content: center;
+            @media (min-width: 768px) {
+              justify-content: flex-start;
+            }
           }
           & > div {
-            text-align: right;
+            text-align: center;
             padding-left: 15px;
             padding-right: 15px;
+            @media (min-width: 768px) {
+              text-align: right;
+            }
           }
           h2 {
             display: inline-block;
             max-width: 300px;
             font-weight: 300;
-            text-align: left;
+            text-align: center;
             font-size: 1.5rem;
             @media (min-width: 768px) {
               font-size: 2rem;
+              text-align: left;
             }
             span {
               display: block;
@@ -42,13 +52,25 @@ const HighlightText = ({ content }) => {
         }
         .subheading {
           &-left {
-            text-align: left;
+            text-align: center;
+            line-height: 2;
+            @media (min-width: 768px) {
+              text-align: left;
+            }
           }
           &-center {
             text-align: center;
+            line-height: 2;
+            @media (min-width: 768px) {
+              text-align: center;
+            }
           }
           &-right {
-            text-align: right;
+            text-align: center;
+            line-height: 2;
+            @media (min-width: 768px) {
+              text-align: right;
+            }
           }
         }
       `}

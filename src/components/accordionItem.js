@@ -22,7 +22,10 @@ const AccordionItem = ({ item, opened = false }) => {
           cursor: pointer;
           width: 100%;
           padding: 0;
-          text-align: left;
+          text-align: center;
+          @media (min-width: 768px) {
+            text-align: left;
+          }
           &:active,
           &:focus {
             outline: none;

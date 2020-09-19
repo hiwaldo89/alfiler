@@ -10,10 +10,10 @@ const useStudioPage = () => {
               text
             }
             column_2 {
-              text
+              html
             }
             column_1 {
-              text
+              html
             }
           }
           team_members {
@@ -54,8 +54,8 @@ const useStudioPage = () => {
   return {
     manifesto: {
       title: prismicStudio.data.manifesto[0].title.text,
-      column_1: prismicStudio.data.manifesto[0].column_1.text,
-      column_2: prismicStudio.data.manifesto[0].column_2.text,
+      column_1: prismicStudio.data?.manifesto[0]?.column_1?.html,
+      column_2: prismicStudio.data?.manifesto[0]?.column_2?.html,
     },
     teamMembers: prismicStudio.data.team_members.map(member => ({
       name: member.name.text,

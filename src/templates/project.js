@@ -12,6 +12,7 @@ import TextWithImg from "../components/proyecto/textWithImg"
 import Columns from "../components/proyecto/columns"
 import AccordionColumns from "../components/proyecto/accordionColumns"
 import { colors } from "../utils/colors"
+import { Link } from "gatsby"
 
 const Project = ({ data: { prismicProjects: project } }) => {
   return (
@@ -19,7 +20,9 @@ const Project = ({ data: { prismicProjects: project } }) => {
       <SEO
         title={project.data.title.text}
         description={project.data?.meta_description?.text || ""}
-        meta={{ property: "og:image", content: project.data?.cover_image?.url }}
+        meta={[
+          { property: "og:image", content: project.data?.cover_image?.url },
+        ]}
       />
       <h1 className="sr-only">{project.data.title.text}</h1>
       <div
@@ -74,6 +77,25 @@ const Project = ({ data: { prismicProjects: project } }) => {
               return <div key={`slice-${index}`}>No block defined</div>
           }
         })}
+      </div>
+      <div className="container text-center">
+        <Link
+          to="/proyectos"
+          css={css`
+            border: solid 1px #000;
+            padding: 0.8rem 1.8rem;
+            display: inline-block;
+            margin-bottom: 6rem;
+            color: inherit;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              color: #fff;
+              background-color: #000;
+            }
+          `}
+        >
+          Ver más proyectos
+        </Link>
       </div>
     </Layout>
   )

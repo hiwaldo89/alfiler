@@ -34,7 +34,7 @@ const useProyectosPage = () => {
           uid
         }
       }
-      allPrismicResenas(limit: 4) {
+      allPrismicResenas {
         nodes {
           id
           data {

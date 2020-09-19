@@ -31,9 +31,17 @@ const TwoColText = ({ content }) => {
         h2 {
           font-weight: 300;
           font-size: 2rem;
+          text-align: center;
+          @media (min-width: 768px) {
+            text-align: left;
+          }
         }
         .content {
           line-height: 2;
+          text-align: center;
+          @media (min-width: 768px) {
+            text-align: left;
+          }
         }
         .right-col {
           text-align: right;
