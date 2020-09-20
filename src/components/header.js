@@ -280,7 +280,7 @@ const Header = () => {
                   {item.content.text}
                   <div>
                     <a href="https://wa.me/4424644699" target="_blank">
-                      Whatsap only: 442 464 46 99
+                      Whatsapp only: 442 464 46 99
                     </a>
                   </div>
                 </div>
