@@ -64,6 +64,13 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-crisp-chat`,
+      options: {
+        websiteId: `d0325150-d5cc-41c2-90f7-ce02b46ce253`,
+        defer: true,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
