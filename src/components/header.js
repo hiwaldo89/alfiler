@@ -244,7 +244,7 @@ const Header = () => {
                   </li>
                 ))}
                 <li className="mobile-wa">
-                  <a href="https://wa.me/4424644699" target="_blank">
+                  <a href="https://wa.me/+524424644699" target="_blank">
                     Whatsapp only: <br />
                     442 464 46 99
                   </a>
@@ -279,7 +279,7 @@ const Header = () => {
                   <h3>{item.titulo.text}</h3>
                   {item.content.text}
                   <div>
-                    <a href="https://wa.me/4424644699" target="_blank">
+                    <a href="https://wa.me/+524424644699" target="_blank">
                       Whatsapp only: 442 464 46 99
                     </a>
                   </div>
