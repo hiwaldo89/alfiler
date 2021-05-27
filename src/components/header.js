@@ -66,6 +66,7 @@ const Header = () => {
               font-size: 1.2rem;
               .mobile-wa {
                 margin-bottom: 4rem;
+                text-align: center;
               }
               &.is-opened {
                 transform: translateX(0);
