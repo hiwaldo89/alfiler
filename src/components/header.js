@@ -279,8 +279,8 @@ const Header = () => {
                   <h3>{item.titulo.text}</h3>
                   {item.content.text}
                   <div>
-                    <a href="https://wa.me/+524424644699" target="_blank">
-                      Whatsapp only: 442 464 46 99
+                    <a href="https://wa.me/+524426084124" target="_blank">
+                      Teléfono: 442 608 4124
                     </a>
                   </div>
                 </div>

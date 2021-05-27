@@ -75,9 +75,9 @@ const Footer = () => {
         </div>
         <div>
           <div className="inline-block">
-            <h4>Whatsapp only </h4>
-            <a href="https://wa.me/+524424644699" target="_blank">
-              442 464 4699
+            <h4>Teléfono </h4>
+            <a href="https://wa.me/+524426084124" target="_blank">
+              442 608 4124
             </a>{" "}
             <br />
           </div>
