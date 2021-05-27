@@ -244,9 +244,9 @@ const Header = () => {
                   </li>
                 ))}
                 <li className="mobile-wa">
-                  <a href="https://wa.me/+524424644699" target="_blank">
-                    Whatsapp only: <br />
-                    442 464 46 99
+                  <a href="https://wa.me/+524426084124" target="_blank">
+                    Teléfono: <br />
+                    442 608 4124
                   </a>
                 </li>
               </ul>
