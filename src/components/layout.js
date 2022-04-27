@@ -7,16 +7,19 @@ import useMousePosition from "../utils/useMousePosition"
 import "typeface-roboto"
 import "normalize.css"
 import "../components/layout.scss"
-import { HoverProvider } from "../providers/hoverProvider"
 import { colors } from "../utils/colors"
+import Cart from "./cart"
 
 const Layout = ({ children }) => {
   const { x, y } = useMousePosition()
 
   return (
-    <HoverProvider>
+    <>
       <Global
         styles={css`
+          * {
+            box-sizing: border-box;
+          }
           body {
             font-family: "Roboto", sans-serif;
             background-color: ${colors.lightgray};
@@ -32,7 +35,8 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
-    </HoverProvider>
+      <Cart />
+    </>
   )
 }
 

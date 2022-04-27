@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { css } from "@emotion/core"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
@@ -7,8 +7,10 @@ import useMenu from "../utils/useMenu"
 import Headroom from "react-headroom"
 import Logo from "../images/logo.inline.svg"
 import Hamburger from "./hamburger"
+import { StoreContext } from "../context/store-context"
 
 const Header = () => {
+  const { openCart, checkout } = useContext(StoreContext)
   const { prismicMenu } = useMenu()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showMegamenu, setShowMegamenu] = useState(false)
@@ -30,6 +32,11 @@ const Header = () => {
           background-color: ${colors.lightgray};
           position: relative;
           z-index: 1200;
+          .hamburger {
+            @media (min-width: 768px) {
+              display: none;
+            }
+          }
           .menu {
             .logo {
               width: 54px;
@@ -98,7 +105,7 @@ const Header = () => {
                 margin-bottom: 2rem;
                 &:first-of-type,
                 &:last-of-type {
-                  margin-top: auto;
+                  //margin-top: auto;
                 }
                 @media (min-width: 768px) {
                   margin-left: 2.5rem;
@@ -217,6 +224,11 @@ const Header = () => {
             <Hamburger menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
             <nav className={menuOpened ? "is-opened" : ""}>
               <ul>
+                <li>
+                  <Link to="/tienda" activeClassName="active">
+                    Tienda
+                  </Link>
+                </li>
                 {prismicMenu.data.menu_item.map((item, index) => (
                   <li
                     key={`menu-item-${prismicMenu.id}-${index}`}
@@ -249,6 +261,40 @@ const Header = () => {
                     Teléfono: <br />
                     442 608 4124
                   </a>
+                </li>
+                <li>
+                  <button
+                    onClick={openCart}
+                    css={css`
+                      background: transparent;
+                      padding: 0;
+                      margin: 0;
+                      border: none;
+                      position: relative;
+                      &.has-items {
+                        &:after {
+                          content: "";
+                          width: 10px;
+                          height: 10px;
+                          border-radius: 50%;
+                          background: #000;
+                          position: absolute;
+                          top: 0;
+                          right: -5px;
+                        }
+                      }
+                    `}
+                    className={checkout.lineItems.length > 0 ? "has-items" : ""}
+                  >
+                    <img
+                      src="/images/shopping-cart.png"
+                      alt="cart"
+                      width={20}
+                      css={css`
+                        display: block;
+                      `}
+                    />
+                  </button>
                 </li>
               </ul>
             </nav>

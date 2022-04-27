@@ -1,6 +1,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+console.log(process.env.NODE_ENV)
 
 module.exports = {
   siteMetadata: {
@@ -39,11 +40,10 @@ module.exports = {
       options: {
         repositoryName: `alfiler`,
         accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({ node, key, value }) => post =>
-          `/proyectos/${post.uid}`,
-        shouldDownloadImage: ({ node, key, value }) => {
-          return true
-        },
+        linkResolver:
+          ({ node, key, value }) =>
+          post =>
+            `/proyectos/${post.uid}`,
         schemas: {
           menu: require(`./src/schemas/menu.json`),
           home: require(`./src/schemas/home.json`),
@@ -53,6 +53,9 @@ module.exports = {
           servicios: require(`./src/schemas/servicios.json`),
           resenas: require(`./src/schemas/resenas.json`),
           category: require(`./src/schemas/category.json`),
+          tienda: require(`./src/schemas/tienda.json`),
+          product_category: require(`./src/schemas/product_category.json`),
+          products: require(`./src/schemas/products.json`),
         },
       },
     },
@@ -64,19 +67,28 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-crisp-chat`,
-      options: {
-        websiteId: `d0325150-d5cc-41c2-90f7-ce02b46ce253`,
-        defer: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-crisp-chat`,
+    //   options: {
+    //     websiteId: `d0325150-d5cc-41c2-90f7-ce02b46ce253`,
+    //     defer: true,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: `UA-178916468-1`,
       },
     },
+    {
+      resolve: `gatsby-source-shopify`,
+      options: {
+        password: "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",
+        storeUrl: "alfiler.myshopify.com",
+        shopifyConnections: ["collections"],
+      },
+    },
+    `gatsby-plugin-image`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
