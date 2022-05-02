@@ -53,6 +53,7 @@ const ProjectGrid = ({ projects, categories }) => {
             background: transparent;
             border: none;
             margin-bottom: 10px;
+            color: #000;
             &.active {
               font-weight: 700;
             }

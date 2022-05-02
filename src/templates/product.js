@@ -2,12 +2,14 @@ import React, { useState, useContext, useMemo } from "react"
 import { css } from "@emotion/core"
 import Img from "gatsby-image"
 import Select from "react-select"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+import Slider from "react-slick"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { StoreContext } from "../context/store-context"
 import StorePreview from "../components/storePreview"
+import useWindowDimensions from "../hooks/useWindowDimensions"
 
 const Product = ({
   data: {
@@ -18,14 +20,9 @@ const Product = ({
     allShopifyProduct,
   },
 }) => {
-  const {
-    addVariantToCart,
-    openCart,
-    checkout,
-    removeLineItems,
-    loading,
-    setLineItemsImages,
-  } = useContext(StoreContext)
+  const { width } = useWindowDimensions()
+  const { addVariantToCart, openCart, checkout, removeLineItems, loading } =
+    useContext(StoreContext)
   const productOptions = product.data.body.reduce((result, currentItem) => {
     result[currentItem.primary.variant_title.text] =
       currentItem.items[0].product_id1.text
@@ -149,6 +146,7 @@ const Product = ({
       <div
         className="container"
         css={css`
+          padding-top: 4rem;
           .d-flex {
             margin-left: -15px;
             margin-right: -15px;
@@ -167,11 +165,13 @@ const Product = ({
             }
           }
           .desc-col {
-            width: 50%;
-            flex: 0 0 50%;
-            margin-left: auto;
-            position: sticky;
-            top: 0;
+            @media (min-width: 768px) {
+              width: 50%;
+              flex: 0 0 50%;
+              margin-left: auto;
+              position: sticky;
+              top: 0;
+            }
           }
           h1 {
             font-size: 25px;
@@ -253,11 +253,20 @@ const Product = ({
               }
             }
             .swatch {
-              width: 100px;
-              height: 100px;
+              width: 60px;
+              height: 60px;
               padding: 8px;
               position: relative;
               margin-right: 5px;
+              @media (min-width: 768px) {
+                width: 100px;
+                height: 100px;
+              }
+              & + span {
+                @media (max-width: 767px) {
+                  font-size: 80%;
+                }
+              }
               &.selected:before {
                 content: "";
                 display: block;
@@ -272,9 +281,13 @@ const Product = ({
             }
             &--color {
               .swatch {
-                width: 70px;
-                height: 70px;
+                width: 40px;
+                height: 40px;
                 padding: 5px 3px 3px 5px;
+                @media (min-width: 768px) {
+                  width: 70px;
+                  height: 70px;
+                }
                 & > div {
                   border-radius: 50%;
                   overflow: hidden;
@@ -314,12 +327,49 @@ const Product = ({
             align-items: flex-start;
           `}
         >
-          <div className="image-col">
-            {product.data.product_images.map(({ image }, index) => (
-              <div key={`${image.url}-${index}`} className="product-img">
-                <Img fluid={image.fluid} />
-              </div>
-            ))}
+          <div
+            className="image-col"
+            css={css`
+              .slick-dots {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: flex !important;
+                justify-content: center;
+                li {
+                  width: 8px;
+                  height: 8px;
+                  border-radius: 100%;
+                  background: rgba(0, 0, 0, 0.4);
+                  overflow: hidden;
+                  margin: 0 5px;
+                  transition: all 0.3s ease-in-out;
+                  button {
+                    opacity: 0;
+                  }
+                  &.slick-active {
+                    background: #000;
+                    transform: scale(1.5);
+                  }
+                }
+              }
+            `}
+          >
+            {width > 767 ? (
+              product.data.product_images.map(({ image }, index) => (
+                <div key={`${image.url}-${index}`} className="product-img">
+                  <Img fluid={image.fluid} />
+                </div>
+              ))
+            ) : (
+              <Slider arrows={false} dots>
+                {product.data.product_images.map(({ image }, index) => (
+                  <div key={`${image.url}-${index}`} className="product-img">
+                    <Img fluid={image.fluid} />
+                  </div>
+                ))}
+              </Slider>
+            )}
           </div>
           <div className="desc-col">
             <h1>{product.data.title.text}</h1>
@@ -443,9 +493,12 @@ const Product = ({
             margin-left: -15px;
             margin-right: -15px;
             .terms-col {
-              flex: 0 0 50%;
+              flex: 0 0 100%;
               padding-left: 15px;
               padding-right: 15px;
+              @media (min-width: 768px) {
+                flex: 0 0 50%;
+              }
               h1,
               h2,
               h3,

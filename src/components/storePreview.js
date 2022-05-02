@@ -13,7 +13,13 @@ const ProductCard = HoverableComponent(
         css={css`
           padding-left: 15px;
           padding-right: 15px;
-          flex: 0 0 33.3333333%;
+          flex: 0 0 100%;
+          @media (max-width: 767px) {
+            margin-bottom: 50px;
+          }
+          @media (min-width: 768px) {
+            flex: 0 0 33.3333333%;
+          }
           h3 {
             margin: 25px 0 10px 0;
           }
@@ -67,13 +73,18 @@ const StorePreview = ({
   return (
     <div className="container" {...props}>
       <div
-        className="d-flex"
         css={css`
           margin-bottom: 90px;
+          @media (min-width: 768px) {
+            display: flex;
+          }
           h3 {
             margin: 0;
             font-weight: 300;
             font-size: 25px;
+            @media (max-width: 767px) {
+              margin-bottom: 25px;
+            }
           }
           a {
             margin-left: auto;
@@ -84,7 +95,16 @@ const StorePreview = ({
         `}
       >
         <h3>{title}</h3>
-        <Link to="/tienda">VER TODOS</Link>
+        <Link
+          to="/tienda"
+          css={css`
+            @media (max-width: 767px) {
+              display: none;
+            }
+          `}
+        >
+          VER TODOS
+        </Link>
       </div>
       <div
         className="d-flex"
@@ -103,6 +123,33 @@ const StorePreview = ({
             compareAtPrice={product.shopifyProduct.variants[0].compareAtPrice}
           />
         ))}
+      </div>
+      <div
+        css={css`
+          text-align: center;
+          margin-bottom: 50px;
+          @media (min-width: 768px) {
+            display: none;
+          }
+        `}
+      >
+        <Link
+          to="/tienda"
+          css={css`
+            border: solid 1px #000;
+            padding: 0.8rem 1.8rem;
+            display: inline-block;
+            color: inherit;
+            transition: all 0.3s ease-in-out;
+            background-color: transparent;
+            &:hover {
+              color: #fff;
+              background-color: #000;
+            }
+          `}
+        >
+          VER TODOS
+        </Link>
       </div>
     </div>
   )

@@ -20,8 +20,21 @@ const CategorySelector = ({
           border-bottom: solid 1px #000;
           display: flex;
           justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          @media (min-width: 768px) {
+            flex-direction: row;
+          }
           li {
-            margin-left: 170px;
+            margin-bottom: 40px;
+            &:last-child {
+              margin-bottom: 0;
+            }
+            @media (min-width: 768px) {
+              margin-left: 170px;
+              margin-bottom: 0;
+            }
             &:first-of-type {
               margin-left: 0;
             }

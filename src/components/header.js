@@ -33,6 +33,7 @@ const Header = () => {
           position: relative;
           z-index: 1200;
           .hamburger {
+            margin-left: 20px;
             @media (min-width: 768px) {
               display: none;
             }
@@ -221,6 +222,42 @@ const Header = () => {
             <Link to="/">
               <Logo className="logo" />
             </Link>
+            <button
+              onClick={openCart}
+              css={css`
+                background: transparent;
+                padding: 0;
+                margin: 0;
+                margin-left: auto;
+                border: none;
+                position: relative;
+                @media (min-width: 768px) {
+                  display: none;
+                }
+                &.has-items {
+                  &:after {
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: #000;
+                    position: absolute;
+                    top: 0;
+                    right: -5px;
+                  }
+                }
+              `}
+              className={checkout.lineItems.length > 0 ? "has-items" : ""}
+            >
+              <img
+                src="/images/shopping-cart.png"
+                alt="cart"
+                width={20}
+                css={css`
+                  display: block;
+                `}
+              />
+            </button>
             <Hamburger menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
             <nav className={menuOpened ? "is-opened" : ""}>
               <ul>
@@ -262,7 +299,13 @@ const Header = () => {
                     442 608 4124
                   </a>
                 </li>
-                <li>
+                <li
+                  css={css`
+                    @media (max-width: 767px) {
+                      display: none;
+                    }
+                  `}
+                >
                   <button
                     onClick={openCart}
                     css={css`

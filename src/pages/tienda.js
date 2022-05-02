@@ -76,8 +76,12 @@ const Tienda = ({ location }) => {
           width: 100%;
           padding-right: 15px;
           margin-bottom: 85px;
+          @media (max-width: 767px) {
+            padding-left: 15px;
+          }
           @media (min-width: 576px) {
-            max-width: calc(100% - (50% - 270px));
+            //max-width: calc(100% - (50% - 270px));
+            max-width: 540px;
           }
           @media (min-width: 768px) {
             max-width: calc(100% - (50% - 360px));
@@ -89,9 +93,12 @@ const Tienda = ({ location }) => {
             max-width: calc(100% - (50% - 570px));
           }
           .col {
-            flex: 0 0 33.3333333%;
+            flex: 0 0 100%;
             padding-left: 25px;
             padding-right: 25px;
+            @media (min-width: 768px) {
+              flex: 0 0 33.3333333%;
+            }
           }
         `}
       >
@@ -106,6 +113,9 @@ const Tienda = ({ location }) => {
             className="col"
             css={css`
               margin-top: 20%;
+              @media (max-width: 767px) {
+                display: none;
+              }
             `}
           >
             <GatsbyImage
@@ -122,10 +132,17 @@ const Tienda = ({ location }) => {
             <GatsbyImage
               fluid={store.footerImages[1].fluid}
               alt={store.footerImages[1].alt || ""}
+              css={css`
+                @media (max-width: 767px) {
+                  display: none;
+                }
+              `}
             />
             <div
               css={css`
-                margin-top: 150px;
+                @media (min-width: 768px) {
+                  margin-top: 150px;
+                }
                 span {
                   display: block;
                   margin-bottom: 15px;
@@ -144,6 +161,9 @@ const Tienda = ({ location }) => {
             className="col"
             css={css`
               margin-top: 15%;
+              @media (max-width: 767px) {
+                display: none;
+              }
             `}
           >
             <div

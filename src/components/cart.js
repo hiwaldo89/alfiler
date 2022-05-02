@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useRef, useEffect } from "react"
 import Img from "gatsby-image"
 import { css } from "@emotion/react"
 
@@ -7,6 +7,7 @@ import Close from "../images/close.inline.svg"
 import Delete from "../images/delete.inline.svg"
 
 const Cart = () => {
+  const cartRef = useRef(null)
   const { isOpen, closeCart, checkout, removeLineItems } =
     useContext(StoreContext)
   const formattedLineItems = checkout.lineItems
@@ -31,10 +32,23 @@ const Cart = () => {
   const handleCheckout = () => {
     window.open(checkout.webUrl)
   }
-  console.log(checkout.lineItems)
+
+  const handleClickOutside = event => {
+    if (cartRef.current && !cartRef.current.contains(event.target)) {
+      closeCart()
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true)
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true)
+    }
+  }, [])
 
   return (
     <div
+      ref={cartRef}
       css={css`
         position: fixed;
         top: 0;
@@ -76,6 +90,9 @@ const Cart = () => {
             margin: 0;
             background: transparent;
             border: none;
+            @media (max-width: 767px) {
+              right: 20px;
+            }
           }
         }
         .line-items {
@@ -85,6 +102,9 @@ const Cart = () => {
         .cart-footer {
           margin-top: auto;
           padding: 0 15px;
+          @media (max-width: 767px) {
+            padding: 0 50px;
+          }
         }
       `}
       className={`${isOpen ? "opened" : ""}`}
@@ -131,6 +151,9 @@ const Cart = () => {
                   margin-right: 20px;
                   display: flex;
                   align-items: flex-start;
+                  @media (max-width: 767px) {
+                    flex-wrap: wrap;
+                  }
                 `}
               >
                 <button
@@ -161,11 +184,20 @@ const Cart = () => {
                   css={css`
                     display: flex;
                     flex: 1;
+                    @media (max-width: 767px) {
+                      flex: 0 0 100%;
+                      padding-left: 48px;
+                      font-size: 80%;
+                      margin-top: 25px;
+                    }
                     h3 {
                       margin: 0;
                     }
                     .addon {
-                      margin: 20px 0;
+                      margin: 10px 0;
+                      @media (min-width: 768px) {
+                        margin: 20px 0;
+                      }
                     }
                   `}
                 >
