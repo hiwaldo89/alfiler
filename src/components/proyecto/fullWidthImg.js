@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 const FullWidthImg = ({ content }) => {
   return (

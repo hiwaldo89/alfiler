@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import useHovered from "../providers/hoverProvider"
 
 const CursorFollower = ({ coordinates }) => {

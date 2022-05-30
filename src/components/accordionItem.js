@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 const AccordionItem = ({ item, opened = false }) => {
   const [active, setActive] = useState(opened)
