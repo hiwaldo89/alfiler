@@ -1,7 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import Layout from "../components/layout"
 import TwoColImg from "../components/proyecto/twoColImage"
 import TextBlock from "../components/proyecto/textBlock"

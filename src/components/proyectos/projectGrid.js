@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { colors } from "../../utils/colors"
 import Project from "./project"
 import Fade from "react-reveal"

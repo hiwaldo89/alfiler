@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react"
 import Img from "gatsby-image"
 import Slider from "react-slick"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { colors } from "../../utils/colors"
 import "slick-carousel/slick/slick.css"
 import Arrow from "../../images/arrow.inline.svg"
