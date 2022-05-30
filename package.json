@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "gatsby": "^4.15.1",
     "gatsby-image": "^3.11.0",
@@ -60,8 +61,8 @@
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
-  "engines" : { 
-    "npm" : ">=8.7.0",
-    "node" : ">=14.0.0"
+  "engines": {
+    "npm": ">=8.7.0",
+    "node": ">=14.0.0"
   }
 }
