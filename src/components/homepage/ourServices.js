@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import ServicesBlock from "../servicesBlock"
 
 const OurServices = ({ services }) => {

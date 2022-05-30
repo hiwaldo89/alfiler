@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { colors } from "../utils/colors"

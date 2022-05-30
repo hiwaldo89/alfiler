@@ -1,5 +1,5 @@
-import React from "react"
-import { Global, css } from "@emotion/core"
+import React, { useEffect } from "react"
+import { Global, css } from "@emotion/react"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import CursorFollower from "../components/cursorFollower"
@@ -12,6 +12,21 @@ import { colors } from "../utils/colors"
 
 const Layout = ({ children }) => {
   const { x, y } = useMousePosition()
+
+  useEffect(() => {
+    window.$crisp = []
+    window.CRISP_WEBSITE_ID = "d0325150-d5cc-41c2-90f7-ce02b46ce253"
+
+    function initCrisp() {
+      var d = document
+      var s = d.createElement("script")
+
+      s.src = "https://client.crisp.chat/l.js"
+      s.async = 1
+      d.getElementsByTagName("head")[0].appendChild(s)
+    }
+    initCrisp()
+  }, [])
 
   return (
     <HoverProvider>
@@ -37,54 +52,3 @@ const Layout = ({ children }) => {
 }
 
 export default Layout
-// /**
-//  * Layout component that queries for data
-//  * with Gatsby's useStaticQuery component
-//  *
-//  * See: https://www.gatsbyjs.org/docs/use-static-query/
-//  */
-
-// import React from "react"
-// import PropTypes from "prop-types"
-// import { useStaticQuery, graphql } from "gatsby"
-
-// import Header from "./header"
-// import "./layout.css"
-
-// const Layout = ({ children }) => {
-//   const data = useStaticQuery(graphql`
-//     query SiteTitleQuery {
-//       site {
-//         siteMetadata {
-//           title
-//         }
-//       }
-//     }
-//   `)
-
-//   return (
-//     <>
-//       <Header siteTitle={data.site.siteMetadata.title} />
-//       <div
-//         style={{
-//           margin: `0 auto`,
-//           maxWidth: 960,
-//           padding: `0 1.0875rem 1.45rem`,
-//         }}
-//       >
-//         <main>{children}</main>
-//         <footer>
-//           © {new Date().getFullYear()}, Built with
-//           {` `}
-//           <a href="https://www.gatsbyjs.org">Gatsby</a>
-//         </footer>
-//       </div>
-//     </>
-//   )
-// }
-
-// Layout.propTypes = {
-//   children: PropTypes.node.isRequired,
-// }
-
-// export default Layout

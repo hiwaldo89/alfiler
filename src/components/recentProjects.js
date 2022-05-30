@@ -1,7 +1,7 @@
 import React from "react"
 import useRecentProjects from "../utils/useRecentProjects"
 import useFeaturedProjects from "../utils/useFeaturedProjects"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import Project from "./project"
 
 const RecentProjects = ({ limit = 4, featured = false }) => {

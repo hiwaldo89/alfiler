@@ -1,7 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import Layout from "../components/layout"
 import TwoColImg from "../components/proyecto/twoColImage"
 import TextBlock from "../components/proyecto/textBlock"
@@ -114,7 +114,7 @@ export const PageQuery = graphql`
           url
         }
         body {
-          ... on PrismicProjectsBodyTwoColumnImage {
+          ... on PrismicProjectsDataBodyTwoColumnImage {
             id
             slice_type
             primary {
@@ -130,7 +130,7 @@ export const PageQuery = graphql`
               }
             }
           }
-          ... on PrismicProjectsBodyTextBlock {
+          ... on PrismicProjectsDataBodyTextBlock {
             id
             slice_type
             primary {
@@ -142,7 +142,7 @@ export const PageQuery = graphql`
               }
             }
           }
-          ... on PrismicProjectsBodyHightlightText {
+          ... on PrismicProjectsDataBodyHightlightText {
             id
             slice_type
             primary {
@@ -156,7 +156,7 @@ export const PageQuery = graphql`
               subheading_alignment
             }
           }
-          ... on PrismicProjectsBodyTwoColumnText {
+          ... on PrismicProjectsDataBodyTwoColumnText {
             id
             slice_type
             primary {
@@ -171,7 +171,7 @@ export const PageQuery = graphql`
               }
             }
           }
-          ... on PrismicProjectsBodyFullWidthImage {
+          ... on PrismicProjectsDataBodyFullWidthImage {
             id
             slice_type
             primary {
@@ -183,7 +183,7 @@ export const PageQuery = graphql`
               }
             }
           }
-          ... on PrismicProjectsBodyTextWithImage {
+          ... on PrismicProjectsDataBodyTextWithImage {
             id
             slice_type
             primary {
@@ -198,7 +198,7 @@ export const PageQuery = graphql`
               }
             }
           }
-          ... on PrismicProjectsBodyColumns {
+          ... on PrismicProjectsDataBodyColumns {
             id
             slice_type
             items {
@@ -207,7 +207,7 @@ export const PageQuery = graphql`
               }
             }
           }
-          ... on PrismicProjectsBodyAccordionColumns {
+          ... on PrismicProjectsDataBodyAccordionColumns {
             id
             slice_type
             items {
