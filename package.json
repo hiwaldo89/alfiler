@@ -24,7 +24,6 @@
     "gatsby-source-prismic": "^5.2.7",
     "gatsby-transformer-sharp": "^4.15.0",
     "hamburgers": "^1.2.1",
-    "node-sass": "^7.0.1",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
@@ -34,6 +33,7 @@
     "react-reveal": "^1.2.2",
     "react-scroll-parallax": "^2.3.4",
     "react-slick": "^0.27.1",
+    "sass": "^1.52.1",
     "slick-carousel": "^1.8.1",
     "typeface-roboto": "0.0.75"
   },
