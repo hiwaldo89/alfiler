@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "gatsby"
 import Slider from "react-slick"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { colors } from "../../utils/colors"
 import "slick-carousel/slick/slick.css"
 

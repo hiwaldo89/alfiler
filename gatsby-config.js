@@ -34,16 +34,16 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    "gatsby-plugin-image",
     {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `alfiler`,
         accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({ node, key, value }) => post =>
-          `/proyectos/${post.uid}`,
-        shouldDownloadImage: ({ node, key, value }) => {
-          return true
-        },
+        linkResolver:
+          ({ node, key, value }) =>
+          post =>
+            `/proyectos/${post.uid}`,
         schemas: {
           menu: require(`./src/schemas/menu.json`),
           home: require(`./src/schemas/home.json`),
@@ -53,6 +53,9 @@ module.exports = {
           servicios: require(`./src/schemas/servicios.json`),
           resenas: require(`./src/schemas/resenas.json`),
           category: require(`./src/schemas/category.json`),
+          tienda: require(`./src/schemas/tienda.json`),
+          product_category: require(`./src/schemas/product_category.json`),
+          products: require(`./src/schemas/products.json`),
         },
       },
     },
@@ -62,13 +65,6 @@ module.exports = {
         rule: {
           include: /\.inline\.svg$/,
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-crisp-chat`,
-      options: {
-        websiteId: `d0325150-d5cc-41c2-90f7-ce02b46ce253`,
-        defer: true,
       },
     },
     {

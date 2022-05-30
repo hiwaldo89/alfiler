@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import { ParallaxProvider, Parallax } from "react-scroll-parallax"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { colors } from "../../utils/colors"
 
 const About = ({ blocks }) => {
